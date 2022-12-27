@@ -1284,3 +1284,131 @@
 //  }
 
 //  console.log(maxGap([13,10,2,9,5]));//4
+
+
+// const comparator = (arr) => {
+//    // Your code here
+//    const arrFirstSecondStr = [...arr.slice(0, 1), ...arr.slice(-1)]
+//    const arrReversNumStr = arr.slice(1, +-1).reverse()
+//    const finalArray = [...arrFirstSecondStr, ...arrReversNumStr]
+//    return finalArray
+//  }
+
+//  console.log(comparator([
+//    "On the 12th day of Christmas my true love gave to me",
+//    "12 drummers drumming,",
+//    "11 pipers piping,",
+//    "10 lords a leaping,",
+//    "9 ladies dancing,",
+//    "8 maids a milking,",
+//    "7 swans a swimming,", 
+//    "6 geese a laying,", 
+//    "5 golden rings,", 
+//    "4 calling birds,",
+//    "3 French hens,", 
+//    "2 turtle doves and", 
+//    "a partridge in a pear tree."    
+// ]));
+
+
+// function scheme(cmd) {
+//    //*
+//    const cmdArray = cmd.split(' ')
+//    const numArr = cmdArray.map(Number).filter(Number)
+//    // let res = 0
+   
+   // if(cmdArray[0] ==='*') res = numArr.reduce((a,b) => a*b,1)
+   // if(cmdArray[0] ==='+') res = numArr.reduce((a,b) => a+b,0)
+   // if(cmdArray[0] ==='/') res = numArr.reduce((a,b) => a/b,0)
+   // if(cmdArray[0] ==='-') res = numArr.reduce((a,b) => a-b,0)
+    
+   //  return res
+//*
+//  const cmdArray = cmd.split(' ')
+//  const numArr = cmdArray.map(Number).filter(Number)
+
+//  if(cmdArray[0] ==='*') return numArr.reduce((a,b) => a*b,1)
+//  if(cmdArray[0] ==='+') return numArr.reduce((a,b) => a+b,0)
+//  if(cmdArray[0] ==='/') return numArr.reduce((a,b) => a/b,0)
+//  if(cmdArray[0] ==='-') return numArr.reduce((a,b) => a-b,0)
+
+
+// return cmdArray.length === 1 && cmdArray[0] === '*' ? 1 :
+//        cmdArray.length === 1 && cmdArray[0] === '+' ? 0 :
+//        cmdArray.length === 1 && cmdArray[0] === '-' ? 0 :
+//        cmdArray.length === 1 && cmdArray[0] === '/' ? 0 :
+//       numArr.reduce((a,b) => {
+//     if(cmdArray[0] === '/') a = a / b;
+//     if(cmdArray[0] === '*') a = a * b;
+//    // if(cmdArray[0] ==='*') a = a*b;
+//     if(cmdArray[0] ==='+') a = a+b;
+//     if(cmdArray[0] ==='/') a = a/b;
+//     if(cmdArray[0] ==='-') a = a-b;
+//    return a
+
+//*
+// const cmdArray = cmd.split(' ')
+// const numArr = cmdArray.map(Number).filter(Number)
+
+//   return cmdArray.length === 1 && cmdArray[0] === '*' ? 1 : numArr.reduce((a,b) => {
+//   if(cmdArray[0] ==='*') a*=b
+//   if(cmdArray[0] ==='+') a+=b
+//   if(cmdArray[0] ==='/') a/=b
+//   if(cmdArray[0] ==='-') a-=b
+//   return a
+// },0)
+// })
+
+
+// function scheme(cmd) {
+//    const cmdArray = cmd.split(' ')
+//    console.log(object);
+//    const numArr = cmdArray.map(Number).filter(Number) 
+    
+//   return cmdArray.length === 1 && cmdArray[0] === '*' ? 1 :
+//          cmdArray.length === 1 && cmdArray[0] === '+' ? 0 :
+//          cmdArray.length === 1 && cmdArray[0] === '-' ? 0 :
+//          cmdArray.length === 1 && cmdArray[0] === '/' ? 0 :
+//          numArr.reduce((a,b) => {
+//                if(cmdArray[0] === '/') a = a / b;
+//                if(cmdArray[0] === '*') a = a * b;
+//                if(cmdArray[0] ==='+') a = a+b;
+//                if(cmdArray[0] ==='-') a = a-b;
+//            return a
+//         })
+//   }
+
+// function scheme(cmd) {
+//    const cmdArray = [...cmd].slice(1, +-1).join('').split(' ')
+//    const numArr = cmdArray.map(Number).filter(Number)
+
+//    return cmdArray.length === 1 && cmdArray[0] === '*' ? 1 :
+//          cmdArray.length === 1 && cmdArray[0] === '+' ? 0 :
+//          cmdArray.length === 1 && cmdArray[0] === '-' ? 0 :
+//          cmdArray.length === 1 && cmdArray[0] === '/' ? 0 :
+//          numArr.reduce((a,b) => {
+//                if(cmdArray[0] === '/') a = a / b;
+//                if(cmdArray[0] === '*') a = a * b;
+//                if(cmdArray[0] ==='+') a = a+b;
+//                if(cmdArray[0] ==='-') a = a-b;
+//            return a
+//         })
+
+// }
+
+//   console.log(scheme('(+ 4 4 -4)')); //4
+//   console.log(scheme('(* 4 4)')); //16
+//    console.log(scheme('(+ 4 4)')); //8
+//    console.log(scheme('(- 4 3)')); //1
+//    console.log(scheme('(/ 3 4)')); //0,75
+//    console.log(scheme('(*)')); //1
+//    console.log(scheme('(+)')); //
+//    console.log(scheme('(* 3 4)'));
+//   console.log(scheme('(/)'));
+
+
+const complete = str =>{
+   return
+} 
+
+console.log(str());
