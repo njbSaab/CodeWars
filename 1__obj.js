@@ -31,17 +31,16 @@
 // let user = info('njb', 30)
 // console.log(user);
 
-
 //! добавить в обьект
 // usInfo.secondName = 'Saab'
 // console.log(usInfo);
 
-//! cоздать 
+//! cоздать
 // usInfo.adress.number = 37
 // usInfo.stek.push('angular')
 // usInfo['like js'] = true
 
-//! удалить 
+//! удалить
 // delete usInfo.adress.street
 // delete usInfo.secondName
 // usInfo.stek.pop()
@@ -61,12 +60,12 @@
 
 //todo ------------------ цыкл по обьектам
 // for(key in usInfo){
-   // console.log('ключ --->',key,'значение --->',usInfo[key]);   
+// console.log('ключ --->',key,'значение --->',usInfo[key]);
 // }
 
 //!           --------THIS---------
 //* this привязывется к конкретному параментру и это более надежнно
-//* автоматически создает обьект 
+//* автоматически создает обьект
 //* this работает без return это происходит автоматически
 // const user = {
 //    name: 'nj',
@@ -93,12 +92,11 @@
 //       name: 'nj',
 //       age: 30,
 //       "learn js": true,
-// } 
+// }
 
 //*    КЛЮЧИ из обьекта в массив
 // let keys = Object.keys(user)
 // console.log(keys);
-
 
 //*    ЗНАЧЕНИЕ из обьекта в массив
 // let val = Object.values(user)
@@ -163,7 +161,6 @@
 // }
 // getKeys();
 
-
 // function getValues(obj) {
 //   const valueProduct = Object.values(product);
 //   return console.log(valueProduct);
@@ -213,7 +210,6 @@
 //4 клонировать обьекты или создать новые обьекты
 //5 создать массив запушить в обьекты
 
-
 //* переобразование массива
 // const user = {
 //   name: 'NJ',
@@ -232,80 +228,6 @@
 // let objEntries = Object.entries(user)
 // console.log(objEntries);
 
-//* exampl--------------------lenght
-// const arr = [50, 60, 70, 80]
-// console.log(arr.length);
-
-// const x = [{ a: 1, }, { b: 2, }, { c: 50, }, { d: 60, }]
-
-// const y = [...x]
-
-// console.log(x);
-// console.log(y);
-
-// x[0].a = 1000
-
-//*  распыление обьекта
-// const a = { x: 1, y: 2 }
-// const b = { x: 0, z: 3 }
-// const d = { x: 5000, }
-
-// const c = Object.assign({}, a, b)
-
-// const c = {
-//     ...a,
-//     c: 100,
-//     ...b,
-//     x: 1000,
-//     ...d
-// }
-// console.log(c);
-
-//* spread распыление на примере настройки темы
-
-// const defaultSettings = {
-//     theme: 'light',
-//     showNotifications: true,
-//     hideSidebar: false,
-// }
-
-// const userSettings = {
-//     showNotifications: false,
-//     hideSidebar: true,
-// }
-
-// const finalSettings = {
-//     ...defaultSettings,
-//     ...userSettings,
-// }
-// console.log(finalSettings);
-
-//* dest деструктуризация obj
-// const playlist = {
-//     name: 'My favorite tracklist',
-//     rating: 5,
-//     tracks: ['track-01', 'track-02', 'track-03'],
-//     trackCount: 3,
-// }
-
-// const { rating, name, tracks, trackCount: numberOfTrack = 1, author = 'user' } = playlist
-// console.log(rating);
-// console.log(name);
-// console.log(tracks);
-// console.log(playlist);
-
-//* dest деструктуризация arr[]
-// const arr = [100, 200, 300]
-// const [red, green, blue] = arr
-// const [red, , blue] = arr
-// console.log(red, blue);
-
-// const authors = {
-//     kiwi: 4,
-//     poly: 5,
-//     ajax: 7,
-//     mango: 6,
-// }
 // ?-----1
 //const rating = Object.values(authors)
 // console.log(Math.max(...rating)); //используем распыление
@@ -327,3 +249,298 @@
 //     console.log(name, rating);
 // }
 
+
+//! распыление обьекта
+   // const a = {x:1,y:3,z:4}
+   // const b = {x:1,y:4,z:5}
+
+   // const c = Object.assign({}, a, b);
+
+   // const c = {
+   //    ...a,
+   //    ...b,
+   // }
+   // console.log(c)
+
+   // const defaultSettings = {
+   //    theme: "light",
+   //    showNotifications: true,
+   //    hideSideBar: false,
+   // }
+   // const mySettings = {
+   //    theme: "light",
+   //    showNotifications: false,
+   //    hideSideBar: true,
+   // }
+   // const finalSettings = {
+   //    ...defaultSettings,
+   //    ...mySettings,
+   //    newFunctions: "music"
+   // }
+   // console.log(finalSettings);
+
+//! деструктуризация dest
+// const playlist = {
+//    name: "My favorit musc",
+//    secondName: "NameUser",
+//    rating: 5,
+//    track: ["track-1","track-2","track-3"],
+//    trackCount: 3,
+//    color: "blue",
+
+//    stats: {
+//       followers: 560,
+//       views: 485,
+//       a: {
+//          b: 1,
+//          c: 1,
+//       }
+//    }
+// }
+
+// const { 
+//    name,
+//    track,
+//    trackCount: numOfTrack,//свойству присвоить другую переменую
+//    stats: {
+//       followers,
+//       a: {
+//          b,
+//          c,
+//          d = 10,
+//       }
+//    },
+//    ...rest
+// } = playlist
+
+// console.log(followers);
+// console.log(name, track, numOfTrack);
+
+
+// console.log(rest);
+
+
+//! деструктуризация обькта в функции после передачи аргумента
+// const showProfilInf = (playlist) => {
+//    const {name, rating} = playlist //? и в телефункции сделать дест 
+// }
+
+//*2 вариант в аргументах
+// const showProfilInf = ({name,
+//                        rating,
+//                        track,
+//                        trackCount,
+//                        color,
+//                           ...restProps}) => {
+//       console.log(name, rating);
+// }
+// console.log(showProfilInf(playlist));
+
+//? реальный пример использования дест
+// const userProf = {
+//    name: "nj",
+//    secondName: "saab",
+//    avatar: "https://img3.akspic.ru/previews/7/4/2/8/6/168247/168247-kosti_3d-igra_v_kosti_3d-azartnaya_igra-pitevaya_igra-kazino-500x.jpg",
+//    mail: "njb@com.ua",
+// }
+
+// const makeProfile = userProf => {
+//    const {
+//       avatar,
+//       name,
+//       mail,
+//       secondName
+//    } = userProf;
+
+//    return `<div>
+//                <img src="${avatar}" alt="" style="width: 100px;
+//                height: 100px; 
+//                background-repeat: no-repeat;
+//                background-position: center;
+//                background-size: cover;">
+//                <p>${mail}</p>
+//                <ul>
+//                   <li>${name}</li>
+//                   <li>${secondName}</li>
+//                </ul>
+//             </div>`
+
+// };
+//  const markup = makeProfile(userProf);
+
+//  document.body.insertAdjacentHTML("afterbegin", markup)
+
+//* пример сложного обьекта с вложенными обьектами, массивами, методами
+// const usName = "Nj";
+// const usEmail = "Saab@nj.com";
+
+// const inputName = "color???";
+// const inputVal = "black";
+
+// const singUp = {
+//   usName,
+//   usEmail,
+//   age: 30,
+//   yearNow: 2022,
+//   job: ["Mdlz", "Equator", "Abm"],
+//   myWorkCompany: 3,
+//   [inputName]: inputVal, //'color???':'black'
+//   chageName(newName) {
+//    return (this.usName = newName);
+//  },
+
+//  getAge(dataBirsdDay) {
+//    return this.yearNow - dataBirsdDay;
+//  },
+
+//  newJob(job) {
+//    this.job.push(job);
+//    this.myWorkCompany = this.job.length;
+//  },
+
+//   myLernTechnology: {
+//     html: {
+//       project: 10,
+//     },
+//     css: {
+//       knowleuge: ["flex", "grid", "animations"],
+//     },
+//     js: {
+//       tems: ["data types", "classes"],
+//       practic: {
+//         codewars: {
+//           kata: 260,
+//         },
+//         goIt: {
+//           tasks: 26,
+//         },
+//         gromCode: {
+//           tasks: 64,
+//         },
+//       },
+//       frameWrok: "-",
+//     },
+//   },
+
+//   myProjectProgressive(num) {
+//      return this.myLernTechnology.html.project + num
+//   },
+//   cssAddStek(stek){
+//     this.myLernTechnology.css.knowleuge.push(stek)
+//   },
+//   jsPractics(where) {
+//      if (where.includes('codewars')) return this.myLernTechnology.js.practic.codewars.kata + 1;
+//      if (where.includes('goIt')) return this.myLernTechnology.js.practic.goIt.tasks + 1;
+//      if (where.includes('gromCode')) return this.myLernTechnology.js.practic.gromCode.tasks + 1
+//   },
+//   frameWrok(str) {
+//      return this.myLernTechnology.js.frameWrok = str;
+//   }
+// };
+// console.log(typeof singUp);
+// console.log(singUp.getAge(30));
+// console.log(singUp.chageName("naj"));
+// console.log(singUp.newJob("frontend studio"));
+// console.log(singUp.myProjectProgressive(1));
+// console.log(singUp.cssAddStek("Sass"));
+// console.log(singUp.jsPractics("codewars"));
+// console.log(singUp.frameWrok("angular"));
+
+// console.log(singUp);
+// singUp.fmail = "man";
+
+//* пример массива обьекта доступы по ключам и значениям
+// const friends = [
+//   { name: "Polina", online: true},
+//   { name: "Vita", online: false},
+//   { name: "Vicktor", online: false},
+//   { name: "Puma", online: true},
+// ]
+
+// const getName = allFredns => {
+//   const namesArray = [];
+//   const whoIsOnline = [];
+//   const apsent = [];
+  
+//   allFredns.forEach(el => {
+//       namesArray.push(el.name);
+//       if(el.online) whoIsOnline.push(el.name)
+//       if(!el.online) apsent.push(el.name)
+//   });
+//    return apsent
+
+//   return allFredns.filter(el => el.online? el.name : 0)
+//   return allFredns.map(el => el.online? el.name : false)
+
+// }
+// console.log(getName(friends));
+
+
+
+
+
+
+//* пример обьекта по типу корзины 
+// const cart = {
+//    items: [],
+//    getItems() {
+//       return this.items
+//    },
+
+//    add(product) {
+//       // console.table(this.items);
+//       for(const item of this.items){
+//          if(item.name === product.name) {
+//             item.quantity +=1
+//             return;
+//          }
+//       }
+//       const newProd = {
+//          ...product,
+//          quantity: 1,
+//       }
+      
+//        this.items.push(newProd)
+//    },
+//    remove(productName){
+//       const {items} = this;
+//       // console.log(items); 
+//       [...productName].forEach((el,i,arr) => {
+//       //   console.log(el === productName);
+//          if(el===productName) items.splice(i, 1)
+//      })
+//    },
+//    clear(){
+//       return this.items = []
+     
+//    },
+
+//    countTotalPrice(){
+//       // let total = 0;
+//       // this.items.forEach(el => {
+//       //    total+=el.price
+//       // })
+//       // return total
+
+//       const arr = this.items;
+//       return arr.map(el => el.price * el.quantity).reduce((a,b) => a+b)
+//    },
+
+//    increaseQuatity(productName){},
+//    increaseQuatity(productName) {},
+// };
+
+
+// cart.add({ name: "😃", price: 50});
+// cart.add({ name: "😭", price: 60});
+// cart.add({ name: "😭", price: 60});
+// cart.add({ name: "😭", price: 60});
+// cart.add({ name: "😡", price: 70});
+// cart.add({ name: "😡", price: 70});
+// cart.add({ name: "🥶", price: 80});
+
+// // console.log(cart.remove('😭'));
+// // cart.clear();
+
+// console.log("TOTAL price -", cart.countTotalPrice());
+// console.table(cart.getItems());

@@ -1471,7 +1471,7 @@
 
 // }
 
-const complete = str => {
+// const complete = str => {
    // *
    // let s = ''
    
@@ -1515,17 +1515,17 @@ const complete = str => {
 //   }
 //   return arr.join("");
 
-}
-console.log(complete("aab")); //aabaa
+// }
+// console.log(complete("aab")); //aabaa
 // console.log(complete("aba"));//*ababa
-console.log(complete("Baa")); //"BaaB" 
+// console.log(complete("Baa")); //"BaaB" 
 // console.log(complete("aaB")); //"aaBaa" 
 // console.log(complete("x")); //*xx
 // console.log(complete("aaBB")); // ['a', 'a', 'B', 'B', 'a', 'a']
 // console.log(complete("aOOa")); //*aOOaOOa
-console.log(complete("xyz")); //"xyzyx
+// console.log(complete("xyz")); //"xyzyx
 //  console.log(complete("AaaaA")); //*"AaaaAaaaA" 
-  console.log(complete("abab")); //ababa
+//   console.log(complete("abab")); //ababa
 
 
     // let res = ""
@@ -1544,3 +1544,145 @@ console.log(complete("xyz")); //"xyzyx
 // (Ab) => Ab + A => AbA
 
 
+// function cupAndBalls(b, arr){
+//    const indexArr = [];
+//   arr.forEach((elem,indx,a) => {
+//      elem.findIndex((e,i) =>{ 
+//         if(e === b && i === 0) indexArr.push(indx) 
+//       });
+//    }); 
+   
+//    return arr.length > 1 ? indexArr[0] : 1
+
+//    return arr.reduce((b,[x,y]) => x === b ? y : y === b ? x : b ,b)
+
+      // return arr.flat().map((e,i) => (e === b) ? i : false).filter(e => e)[0]
+// };
+
+// console.log(cupAndBalls(1,[[2,3],[1,2],[1,2]])); //1
+// console.log(cupAndBalls(2,[[1,3],[1,2],[2,1],[2,3]])); //3
+// console.log(cupAndBalls(2,[[1,2]])); //1 
+
+
+//? отнять элементы массивов по индексу и вернуть [мин и макс] число
+// function maxMin(arr1,arr2){
+//*
+// let res = [];
+// let arrRevers = arr2.reverse();
+
+// const arr3 = [...arr1, ...arrRevers].forEach((e,i,array) =>{
+//   res.push(Math.abs(array[array.length -1 - i] - array[i]));
+// })
+// res = res.slice(0, arr1.length);
+
+// return [Math.max(...res), Math.min(...res)];
+
+//*
+// let difference = arr1.map((e,i) => Math.abs(e - arr2[i]))
+// return [Math.max(...difference), Math.min(...difference)];
+
+//*
+//  let difference = arr1.reduce((a,b,i) => [...a, Math.abs(b - arr2[i])],[])
+//  return [Math.max(...difference), Math.min(...difference)];
+
+//! reudce PRO
+// return arr1.reduce(([max, min], v, i) =>
+//  ([max = Math.max(Math.abs(v - arr2[i]), max),
+//   min = Math.min(Math.abs(v - arr2[i]), min)], [max, min]),
+//    [0, Infinity])
+
+
+//  }
+//*
+//  function maxMin(arr1,arr2){
+//    var diffs = [];
+//    for (i = 0; i < arr1.length; i++) {
+//      diffs.push(Math.abs(arr1[i]-arr2[i]))
+//    }
+//    return [Math.max(...diffs), Math.min(...diffs)]
+//  }
+
+//  console.log(maxMin([1,3,5],[9,8,7]));// 8,2
+//  console.log(maxMin([1,10,100,1000],[0,0,0,0]));// 1000, 1
+//  console.log(maxMin([10,20,30,40],[111,11,1,-111]));//151, 9
+// [1,3,5]
+//  | | |   --->  8, 5, 2
+// [9,8,7]
+
+
+//? двумерный массив увеличить по числу или сумме агрумента
+// function explode(x){
+   //*
+// const res = []
+
+// let y = x.map(e => e === parseInt(e)).every(e => !e);
+
+//  if(y) return 'Void!'
+//  else{
+//    y = x.filter(Number).reduce((a,b) => a + b, 0)
+//      for(let i = 0; i < y; i++){
+//      res.push(x)
+//   }
+//   return res
+//  }
+
+//*
+// let [a,b] = x;
+  
+// if(typeof a == "number" && typeof b == "number") return new Array(a+b).fill(x);
+// else if(typeof a == "number") return new Array(a).fill(x);
+// else if(typeof b == "number") return new Array(b).fill(x);
+
+// return 'Void!';
+ 
+//* filter
+// let filtersEl = x.filter(e => typeof(e) === "number")
+//  if(filtersEl.length === 0) return "void"
+
+// return Array(filtersEl.reduce((a,b) => a + b,0)).fill(x)
+//! отличный способо через Array.from
+// const num = x.filter(e => !isNaN(e))
+// return num.length ? Array.from(Array(num.reduce((a,b) => a + b)), y => x) : 'Void'
+// }
+
+//! вариант с деструктуризацией
+// const explode = ({0:a, 1:b, 0:{0:x}, 1:{0:y}}) => x && y ? 'Void!' : Array((+a | 0) + (+b | 0)).fill([a,b])
+
+// console.log(explode(['a', 3]));// [['a', 3], ['a', 3], ['a', 3]]
+// console.log(explode([9, 3]));// [[9, 3], [9, 3]...9]
+// console.log(explode(['a', 'b']));//'Void'
+// console.log(explode(['a', 0]));//[]
+
+
+
+// function solution(str, ending){
+   //str.slice(-ending.length).includes(ending)
+   //return str.endsWith(ending)
+//   }
+//   console.log(solution('sanurai', 'rai'))// true);
+//   console.log(solution('abcde', 'abc'))// false);
+ 
+//! флат массив обьеденить из многомерных
+// var flatten = function (array){
+   // return array.flat(1)
+
+   // return [].concat(...array)
+
+   // return array.reduce((a,b) => a.concat(...b) ,[])
+
+   // return array.reduce((a,b) => [...a, ...b], [])
+
+   // return [].concat(...Array.from(array))
+//  }
+
+//  const flatten = (array) => array.reduce( (acc, item) => (Array.isArray(item ) ) ? acc = [...acc, ...item] :  acc = [...acc, item], [] );
+
+//  console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]))
+ //([1, 2, 3, "a", "b", "c", 1, 2, 3]);
+
+//  console.log(flatten( [[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]))
+ // ([3, 4, 5, [9, 9, 9], "a,b,c"]);
+
+
+//  console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
+ // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
