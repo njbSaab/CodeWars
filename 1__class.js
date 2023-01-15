@@ -98,3 +98,231 @@
 // console.log(new Ball("super").ballType);
 
 
+// const person = new Object({
+//    name: "NJ",
+//    age: 30,
+//    greet: function (){
+//       console.log("greet");
+//    },
+//    logInfo: function (job, salary){
+//       console.group(`${this.name} info:`)
+//       console.log(`Name is ${this.name}`);
+//       console.log(`Age is ${this.age}`);
+//       console.log(`Job is ${job}`);
+//       console.log(`Salarry is ${salary}`);
+//    }
+// })
+// console.log(person.name);
+
+// Object.prototype.sayHello = function(){
+//    console.log("Hello");
+// }
+// person.sayHello();
+
+// const marina = {
+//    name: "Marina",
+//    age: 23,
+// }
+
+// person.logInfo.bind(marina, "Frontend", "3000")()
+// person.logInfo.call(marina, "Frontend", "3000")
+// person.logInfo.apply(marina,["Frontend", "3000"])
+
+
+// const array = [1,2,3,4,5];
+// // const multBy = (arr, n) => arr.map(item => item * n);
+// //* чтобы не импортировать функцию создается класс с функцией
+// Array.prototype.multBy = function(n) {
+//    return this.map((item) => item * n)
+// }
+
+// console.log(array.multBy(5));
+
+
+//! замыкание в одной функции замыкамый что-то статическое во второй меняем динамически
+
+// function urlGen(domain){
+//    return function(url) {
+//       return `https://${url}.${domain}`
+//    }
+// }
+
+// const comUrl = urlGen('com');
+// console.log(comUrl('google'));
+
+
+// const uaUrl = urlGen('ua');
+// console.log(uaUrl('robota'));
+
+
+// function bind(context, fn) {
+//    return function(...arg){
+//       fn.apply(context, arg)
+//    }
+// }
+
+// function logPerson(){
+//    console.log(`Persom : ${this.name}, ${this.age}, ${this.job}`)
+// }
+
+// const person1 = { name: "NJ", age: 30, job: 'Frontend engineer'}
+// const person2 = { name: "Marina", age: 25, job: 'Frontend engineer'}
+
+// bind(person1, logPerson)()
+// bind(person2, logPerson)()
+
+
+
+
+// class Animal {
+//    static type = "ANIMAL"
+
+//    constructor(options){
+//       this.name = options.name
+//       this.age = options.age
+//       this.hasTail = options.hasTail
+//    }
+
+//    voice(){
+//       console.log("IM animal");
+//    }
+
+// }
+
+// class Dog extends Animal{
+//    static type = "DOG"
+//    constructor(options) {
+//       super(options)
+//       this.collor = options.collor
+//       this.size = options.size
+//    }
+//    voice(){
+//       super.voice()
+//       console.log("im DOG");
+//    }
+//    get getInfo(){
+//       return this.age * 5
+//    }
+//    set sizeInfo(sizeNew){
+//       this.size = sizeNew
+//    }
+
+// }
+
+// const dog = new Dog({
+//    name: "Dog",
+//    age: 2,
+//    hasTail: true,
+//    collor: "white",
+// })
+
+// class Wolf extends Dog {
+//    static type = "WOLF"
+
+//    constructor(options){
+//       super(options)
+//       this.unit = options.unit,
+//       this.myNewWeigth = options.myNewWeigth
+
+//    }
+//    get ageInfo(){
+//       return this.age * 10
+//    }
+//    get info(){
+//       return this.myNewWeigth + this.unit
+//    }
+
+// }
+
+// const wolf = new Wolf({
+//    name: "Wolf",
+//    age: 4,
+//    hasTail: true,
+//    collor: "mix of gray and brown with buffy facial markings and undersides",
+//    size: "large",
+//    myNewWeigth: "30", 
+//    unit: "kg",
+
+// })
+// console.log(wolf.getInfo);
+// class Cat extends Animal {
+//    static type = "CAT"
+
+//    constructor(options) {
+//       super(options)
+//       this.collor = options.collor
+//    }
+
+//    voice() {
+//       super.voice()
+//       console.log("I am cat");
+//    }
+
+//    get ageInfo() {
+//       return this.age * 7
+//    }
+//    set ageInfo(newAge){
+//       this.age = newAge
+//    }
+
+// } 
+
+// const cat = new Cat({
+//    name: "Cat",
+//    age: 7,
+//    hasTail: true,
+//    collor: "black",
+// });
+
+
+// class Tiger extends Cat{
+//    static type = "TIGER"
+
+//    constructor(options) {
+//       super(options)
+//       this.size = options.size;
+//       this.features = options.features;
+//       this.class = options.class;
+//       this.myWeigth = options.myWeigth;
+//       this.unit = options.unit;
+//    }
+//    voice(){
+//       super.voice()
+//      console.log("Im a large cat");
+//    }
+//    get ageInfo(){
+//       return this.age * 4
+//    }
+//    get info(){
+//       return this.myWeigth + this.unit
+//    }
+//    set myNewWeigth(newWeigth){
+//       this.myWeigth = newWeigth;
+//    }
+// }
+
+// const tiger = new Tiger({
+//    name: "Tiger",
+//    age: 6,
+//    hasTail: true,
+//    collor: "standard orange with black stripes",
+//    class: {
+//       kindOfAnimal: "predator",
+//       whatHeEat: "meet",
+//    },
+//    features: {
+//       hasA: "big teeath",
+//       paws: "sharp claws"
+//    },
+//    size: "larg",
+//    myWeigth: "10",
+//    unit: "kg",
+
+// })
+// console.log(tiger);
+// // console.log(tiger.info);
+// // console.log(Animal);
+// // console.log(cat.ageInfo = 8)
+
+
+

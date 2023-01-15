@@ -249,35 +249,34 @@
 //     console.log(name, rating);
 // }
 
-
 //! распыление обьекта
-   // const a = {x:1,y:3,z:4}
-   // const b = {x:1,y:4,z:5}
+// const a = {x:1,y:3,z:4}
+// const b = {x:1,y:4,z:5}
 
-   // const c = Object.assign({}, a, b);
+// const c = Object.assign({}, a, b);
 
-   // const c = {
-   //    ...a,
-   //    ...b,
-   // }
-   // console.log(c)
+// const c = {
+//    ...a,
+//    ...b,
+// }
+// console.log(c)
 
-   // const defaultSettings = {
-   //    theme: "light",
-   //    showNotifications: true,
-   //    hideSideBar: false,
-   // }
-   // const mySettings = {
-   //    theme: "light",
-   //    showNotifications: false,
-   //    hideSideBar: true,
-   // }
-   // const finalSettings = {
-   //    ...defaultSettings,
-   //    ...mySettings,
-   //    newFunctions: "music"
-   // }
-   // console.log(finalSettings);
+// const defaultSettings = {
+//    theme: "light",
+//    showNotifications: true,
+//    hideSideBar: false,
+// }
+// const mySettings = {
+//    theme: "light",
+//    showNotifications: false,
+//    hideSideBar: true,
+// }
+// const finalSettings = {
+//    ...defaultSettings,
+//    ...mySettings,
+//    newFunctions: "music"
+// }
+// console.log(finalSettings);
 
 //! деструктуризация dest
 // const playlist = {
@@ -298,7 +297,7 @@
 //    }
 // }
 
-// const { 
+// const {
 //    name,
 //    track,
 //    trackCount: numOfTrack,//свойству присвоить другую переменую
@@ -316,13 +315,11 @@
 // console.log(followers);
 // console.log(name, track, numOfTrack);
 
-
 // console.log(rest);
-
 
 //! деструктуризация обькта в функции после передачи аргумента
 // const showProfilInf = (playlist) => {
-//    const {name, rating} = playlist //? и в телефункции сделать дест 
+//    const {name, rating} = playlist //? и в телефункции сделать дест
 // }
 
 //*2 вариант в аргументах
@@ -354,7 +351,7 @@
 
 //    return `<div>
 //                <img src="${avatar}" alt="" style="width: 100px;
-//                height: 100px; 
+//                height: 100px;
 //                background-repeat: no-repeat;
 //                background-position: center;
 //                background-size: cover;">
@@ -461,7 +458,7 @@
 //   const namesArray = [];
 //   const whoIsOnline = [];
 //   const apsent = [];
-  
+
 //   allFredns.forEach(el => {
 //       namesArray.push(el.name);
 //       if(el.online) whoIsOnline.push(el.name)
@@ -475,12 +472,7 @@
 // }
 // console.log(getName(friends));
 
-
-
-
-
-
-//* пример обьекта по типу корзины 
+//* пример обьекта по типу корзины
 // const cart = {
 //    items: [],
 //    getItems() {
@@ -499,12 +491,12 @@
 //          ...product,
 //          quantity: 1,
 //       }
-      
+
 //        this.items.push(newProd)
 //    },
 //    remove(productName){
 //       const {items} = this;
-//       // console.log(items); 
+//       // console.log(items);
 //       [...productName].forEach((el,i,arr) => {
 //       //   console.log(el === productName);
 //          if(el===productName) items.splice(i, 1)
@@ -512,7 +504,7 @@
 //    },
 //    clear(){
 //       return this.items = []
-     
+
 //    },
 
 //    countTotalPrice(){
@@ -530,7 +522,6 @@
 //    increaseQuatity(productName) {},
 // };
 
-
 // cart.add({ name: "😃", price: 50});
 // cart.add({ name: "😭", price: 60});
 // cart.add({ name: "😭", price: 60});
@@ -544,3 +535,43 @@
 
 // console.log("TOTAL price -", cart.countTotalPrice());
 // console.table(cart.getItems());
+
+//! Object create
+// const person = Object.create(
+//   {},
+//   {
+//     name: {
+//       value: "NJ",
+//       enumerable: true,
+//       writable: true,
+//       configurable: true,
+//     },
+//     birthYear: {
+//       value: 1992,
+//       enumerable: false,
+//       writable: false,
+//       configurable: false,
+//     },
+//     age: {
+//       get() {
+//         return new Date().getFullYear() - this.birthYear
+//       },
+//       set(val) {
+//          console.log("Set age", val);
+//       }
+//     },
+//   }
+// );
+
+// person.name = "JN"; //true
+// person.birthYear = 2000; //false
+
+// delete person.name; //true
+// delete person.birthYear; //false
+
+// person.age = 100;
+
+// console.log(person);
+// console.log(person.name);
+// console.log(person.birthYear);
+// console.log(person.age);
