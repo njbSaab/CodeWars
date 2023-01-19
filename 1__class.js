@@ -326,3 +326,89 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//! MAP,SET
+//!______________________________MAP______________________________
+// const obj = {
+//    name: "nJ",
+//    age: 30,
+//    job: 'frontend'
+// }
+
+// const arr = [
+//    ['name', 'nj'],
+//    ['age', '30'],
+//    ['job', 'frontend'],
+// ]
+
+// const map = new Map(arr);
+
+
+// map.set('newField', 1)
+// map.set(obj, 'value of obj')
+// map.delete('job')
+
+// console.log(map);
+// console.log(map.get(obj));
+// console.log(map.has('job'));
+// console.log(map.size);
+
+//? forf
+
+// for(let [key, value] of map){
+//    console.log('key---->',key, 'val---->',value);
+// }
+
+// for(let key of map.keys()){
+//    console.log('key---->',key);
+// }
+
+// for(let value of map.values()){
+//    console.log('val---->',value);
+// }
+
+// map.forEach((val,key) =>{
+//    console.log('val---->',val,'key---->',key);
+// })
+
+// const arrMap = [...map]
+// console.log(arrMap);
+
+// const mapObj = Object.fromEntries(map.entries())
+// console.log(mapObj);
+
+//? practic
+
+// const users =[
+// {name: "NJ"},
+// {name: "Anton"},
+// {name: "Sscage"},
+// ]
+
+// const visits = new Map()
+
+// visits.set(users[0], new Date())
+//       .set(users[1], new Date(new Date().getTime() + 1000 * 60))
+//       .set(users[2], new Date(new Date().getTime() + 5000 * 60))
+
+// const lastVisit = user => visits.get(user)
+
+// console.log(lastVisit(users[2]));
+//!______________________________SET______________________________
+// const uniqVal = arr => [...new Set(arr)] // Array.from(new Set))
+// console.log(uniqVal([1,1,3,4,5,6,6,7,7,7,7,7,7,8]));
