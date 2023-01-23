@@ -128,5 +128,26 @@
 //   console.log(solution('sanurai', 'rai'))// true);
 //   console.log(solution('abcde', 'abc'))// false);
 
+//? str должна быть равна size если длина str > 3 место символов вставляем три точки и напротив три точки плюсуем к str если длина <3 
+// function trim(str, size) {
+   //*
+//   if (str.length <= size) return str;
+//   if (str.length <= 3) str.slice(0, size).concat("...");
+//   str = [...str].filter((_, i) => i < size);
+//   if (str.length <= 3) return `${str.join("")}...`;
+//   else {
+//     return `${str.filter((_, i) => i < size - 3).join("")}...`;
+//   }
 
+//*
+//   return str.length > size ? `${str.slice(0, str.length < 3 ? 
+//                                           size : size -3)}...` : str
 
+//*
+   // return str.length > size ? str.substring(0, (size > 3 ? size-3 : size))+'...' : str
+
+// }
+// console.log(trim("Creating kata is fun", 14)); //"Creating ka...";
+// console.log(trim("hen", 1))//"h...";
+// console.log(trim("xzcxzcxvbvn fsdgdhfg", 50))//"xzcxzcxvbvn fsdgdhfg";
+// console.log(trim("st TZ fBQ", 3)); //"st...";

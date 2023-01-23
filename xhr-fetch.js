@@ -1,4 +1,4 @@
-const reqURL = "https://jsonplaceholder.typicode.com/users";
+// const reqURL = "https://jsonplaceholder.typicode.com/users";
 
 // const xhr = new XMLHttpRequest();
 

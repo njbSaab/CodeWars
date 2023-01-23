@@ -1044,11 +1044,9 @@
 
 // console.log(reverse("String"));
 
-
-
-//?реверс массива 
+//?реверс массива
 // function esrever( str ){
-   //*
+//*
 //    return str.length > 0 ? Array.from(str).slice(0,-1).reduce((a,b) => [b,...a]).join('') + str.slice(-1) : '';
 //  }
 
@@ -1056,29 +1054,21 @@
 //const esrever = (str, l=str.length-2) => [...str].map((e,i,a) => (i <= l) ? a[l-i]: e).join('');
 
 //без методов перебора массивов
-//const esrever = str => `${[...str].slice(0,-1).reverse().join('')}${str.charAt(str.length-1)}`; 
-
+//const esrever = str => `${[...str].slice(0,-1).reverse().join('')}${str.charAt(str.length-1)}`;
 
 // console.log(esrever('an Easy one?')); // 'eno ysaE na?'
 // console.log(esrever('a small lOan OF 1,000,000 $!')); //'$ 000,000,1 FO naOl llams a!'
 // console.log(esrever('')); //'$ 000,000,1 FO naOl llams a!'
 
-
-
 // const reverse = arg => Array.from(arg).reduce((a,b) => [b, ...a]).join('')
 
-
 // console.log(reverse('string'));
-
-
 
 // function Revers(arg){
 //    this.arg = function (){
 //       Array.from(arg).reduce((a,b) => [b, ...a]).join('')
 //    }
 // }
-
-
 
 // function GetRevers() {
 //    this.reverse = function (){
@@ -1096,15 +1086,13 @@
 //    return arr.reduce((a,b) => a + b);
 //  }
 //  function reverse(str) {
-//    return str.reduce((a, b) =>[b, ...a], []) 
+//    return str.reduce((a, b) =>[b, ...a], [])
 //  }
 
-
-
 // const multi = arr => arr.reduce((a, b) => a * b);
- 
+
 //  const add = arr =>arr.reduce((a,b) => a + b);
- 
+
 // //  const reverse = str => str.reduce((a,b) => [b, ...a], [])
 // const reverse = str => str.reverse().join(',')
 
@@ -1114,62 +1102,57 @@
 //  console.log(reverse(["hello", 'hi']));
 //  console.log(reverse(['h', 'e', 'l', 'l', 'o']));
 
-
-
 // function isItANum(str) {
-   //*
-   // const numArray = [...str].map(e => e.replace(' ', 'b')).map(Number).filter(e=> e >= 0)
-   
-   // return numArray.length === 11 ? numArray.reduce((a,b,_,arr) => arr[0] === 0 ? a + b : "Not a phone number", "")
-   // : "Not a phone number"
+//*
+// const numArray = [...str].map(e => e.replace(' ', 'b')).map(Number).filter(e=> e >= 0)
 
+// return numArray.length === 11 ? numArray.reduce((a,b,_,arr) => arr[0] === 0 ? a + b : "Not a phone number", "")
+// : "Not a phone number"
 
-   //* сверху оптимизированый код
-   // return str != '' ? [...str].map((e) => e.replace(' ', '_'))
-   //  .filter((e) => e >= 0 ? e : false)
-   //  .map((e, _, arr) => arr.length === 11 ? Number(e) : String(e))
-   //  .reduce((a,b,_,arr) => arr[0] === 0 ? [...a, b] : "no", [])
-   // .reduce((a,b,_,arr) => arr[0] === 0 ? a + b : "no", "")
-   // : "not a number"
-   
-   // 
-  
-  //! nice solution
+//* сверху оптимизированый код
+// return str != '' ? [...str].map((e) => e.replace(' ', '_'))
+//  .filter((e) => e >= 0 ? e : false)
+//  .map((e, _, arr) => arr.length === 11 ? Number(e) : String(e))
+//  .reduce((a,b,_,arr) => arr[0] === 0 ? [...a, b] : "no", [])
+// .reduce((a,b,_,arr) => arr[0] === 0 ? a + b : "no", "")
+// : "not a number"
+
+//
+
+//! nice solution
 //   let num = [...str].filter(el => "0123456789".includes(el))
 //   return (num.length === 11 && num[0] === "0") ? num.join('') : 'No'
 
-   //*
-   // return str.length >= 11 ? [...str]
-   //  .map(x => x.replace(' ', '_'))
-   //  .filter((e) => Number(e) >= 0)
-   //  .map((e, _, arr) => arr.length === 11 ? Number(e) : String(e))
-   //  .reduce((a,b,_,arr) => arr[0] === 0 ? a + b : "no", "") : "not a number"
+//*
+// return str.length >= 11 ? [...str]
+//  .map(x => x.replace(' ', '_'))
+//  .filter((e) => Number(e) >= 0)
+//  .map((e, _, arr) => arr.length === 11 ? Number(e) : String(e))
+//  .reduce((a,b,_,arr) => arr[0] === 0 ? a + b : "no", "") : "not a number"
 
-   //  .forEach((e, _, arr) => {
-      
-   // })
+//  .forEach((e, _, arr) => {
 
-   //*
-   // return [...str].map(x => x.replace(' ', '-')).filter((e) => e >= 0)
-   // .reduce((a, b, _, arr) => {
-   //    if(arr[0] != "0") return "Not a phone number";
-   //    if(arr.length === 11) return a + b
-   //    return "Not a phone number";
-   // })
+// })
 
-   // return arr
+//*
+// return [...str].map(x => x.replace(' ', '-')).filter((e) => e >= 0)
+// .reduce((a, b, _, arr) => {
+//    if(arr[0] != "0") return "Not a phone number";
+//    if(arr.length === 11) return a + b
+//    return "Not a phone number";
+// })
+
+// return arr
 // }
 //     console.log(isItANum("S:)0207ERGQREG88349F82!efRF)"));//"02078834982"
 //     console.log(isItANum("0192387415456"));//"not a number"
 //     console.log(isItANum("sjfniebienvr12312312312ehfWh"));//"not a number"
 //     console.log(isItANum( "v   uf  f 0tt2eg qe0b 8rtyq4eyq564()(((((165"));//  number
-//     console.log(isItANum(""));// not 
-//    console.log(isItANum(", , , , , , , , , , , , "));// not 
-
-
+//     console.log(isItANum(""));// not
+//    console.log(isItANum(", , , , , , , , , , , , "));// not
 
 // function nthSmallest(arr, pos){
-//   return arr.sort((a,b) => a - b)[pos - 1] 
+//   return arr.sort((a,b) => a - b)[pos - 1]
 //  }
 
 // //  console.log(nthSmallest([3,1,2], 2));
@@ -1177,26 +1160,23 @@
 //  console.log(nthSmallest([2,169,13,-5,0,-1], 4)); //2
 //  console.log(nthSmallest([2,1,3,3,1,2], 3));//2
 
-
 // function minSum(arr) {
 //     const resBig = [];
 // const resS = [];
 //  let maxNum = 0;
 //  let minNum = 0;
- 
+
 //    // if(elem === Math.max(elem)) return res.push(Math.min(elem) * elem[i --])
 //   for(let i = 0; i <= arr.length; i++){
 //    if(arr[i] > maxNum) {
-//       maxNum = arr[i]  
-//    } 
+//       maxNum = arr[i]
+//    }
 // }
 //    return minNum
 
-
-
 //   arr.forEach(element => {
 //        resBig.push(Math.max.apply(null, arr) * Math.min.apply(null, arr))
-   
+
 //  })
 //   arr.reduce((a,b) => {
 //     if(b > a){
@@ -1206,11 +1186,9 @@
 //  })
 //  return resBig
 
-
-// return 
+// return
 
 // }
-
 
 // ? умножить элемент больше на менше
 //todo метод поп удаляем последний элемент после умножения
@@ -1224,7 +1202,6 @@
 //    .filter((e, i, array) => i < array.length / 2)
 //    .reduce((a,b) => a + b)
 
-
 //*
 // let sum = 0
 // let array = arr.sort((a,b) => a - b)
@@ -1237,14 +1214,11 @@
 //   console.log(minSum([12,6,10,26,3,24]));//342
 //  console.log(minSum([9,2,8,7,5,4,0,6]));//74
 
-
-
 //  function toNumberArray(stringarray){
 //     return stringarray.map(Number)
 // }
 
 // console.log(toNumberArray(["1.1","2.2","3.3"]));
-
 
 // function hasUniqueChars(str){
 //    return [...str].filter((e) => str.indexOf(e) === str.lastIndexOf(e)).length === str.length
@@ -1255,36 +1229,29 @@
 //  console.log(hasUniqueChars("aA"));
 //  console.log(hasUniqueChars("++-"));
 
-
-
 // function sumEvenNumbers(input) {
-   //* все четные числа просумировать
+//* все четные числа просумировать
 //   return input.filter(x => x%2==0).reduce((a,b)=> a+b, 0)
 
-   // return input.reduce((a,b) => a + (b % 2 ? 0 : b), 0)
+// return input.reduce((a,b) => a + (b % 2 ? 0 : b), 0)
 // }
 
 // console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); //30
 
-
 // ? умножить size раз самые большие числа
 // function maxProduct(numbers, size){
 //   return numbers.sort((a,b) => b-a).slice(0, size).reduce((a, b) => a * b)
-
 
 //  }
 
 //  console.log(maxProduct([4,3,5],2));
 //  console.log(maxProduct([10,10,10,1,1,5], 3));
 
-
 // function maxGap (n){
-
 
 //  }
 
 //  console.log(maxGap([13,10,2,9,5]));//4
-
 
 // const comparator = (arr) => {
 //    // Your code here
@@ -1301,28 +1268,27 @@
 //    "10 lords a leaping,",
 //    "9 ladies dancing,",
 //    "8 maids a milking,",
-//    "7 swans a swimming,", 
-//    "6 geese a laying,", 
-//    "5 golden rings,", 
+//    "7 swans a swimming,",
+//    "6 geese a laying,",
+//    "5 golden rings,",
 //    "4 calling birds,",
-//    "3 French hens,", 
-//    "2 turtle doves and", 
-//    "a partridge in a pear tree."    
+//    "3 French hens,",
+//    "2 turtle doves and",
+//    "a partridge in a pear tree."
 // ]));
-
 
 // function scheme(cmd) {
 //    //*
 //    const cmdArray = cmd.split(' ')
 //    const numArr = cmdArray.map(Number).filter(Number)
 //    // let res = 0
-   
-   // if(cmdArray[0] ==='*') res = numArr.reduce((a,b) => a*b,1)
-   // if(cmdArray[0] ==='+') res = numArr.reduce((a,b) => a+b,0)
-   // if(cmdArray[0] ==='/') res = numArr.reduce((a,b) => a/b,0)
-   // if(cmdArray[0] ==='-') res = numArr.reduce((a,b) => a-b,0)
-    
-   //  return res
+
+// if(cmdArray[0] ==='*') res = numArr.reduce((a,b) => a*b,1)
+// if(cmdArray[0] ==='+') res = numArr.reduce((a,b) => a+b,0)
+// if(cmdArray[0] ==='/') res = numArr.reduce((a,b) => a/b,0)
+// if(cmdArray[0] ==='-') res = numArr.reduce((a,b) => a-b,0)
+
+//  return res
 //*
 //  const cmdArray = cmd.split(' ')
 //  const numArr = cmdArray.map(Number).filter(Number)
@@ -1331,7 +1297,6 @@
 //  if(cmdArray[0] ==='+') return numArr.reduce((a,b) => a+b,0)
 //  if(cmdArray[0] ==='/') return numArr.reduce((a,b) => a/b,0)
 //  if(cmdArray[0] ==='-') return numArr.reduce((a,b) => a-b,0)
-
 
 // return cmdArray.length === 1 && cmdArray[0] === '*' ? 1 :
 //        cmdArray.length === 1 && cmdArray[0] === '+' ? 0 :
@@ -1359,12 +1324,11 @@
 // },0)
 // })
 
-
 // function scheme(cmd) {
 //    const cmdArray = cmd.split(' ')
 //    console.log(object);
-//    const numArr = cmdArray.map(Number).filter(Number) 
-    
+//    const numArr = cmdArray.map(Number).filter(Number)
+
 //   return cmdArray.length === 1 && cmdArray[0] === '*' ? 1 :
 //          cmdArray.length === 1 && cmdArray[0] === '+' ? 0 :
 //          cmdArray.length === 1 && cmdArray[0] === '-' ? 0 :
@@ -1406,16 +1370,13 @@
 //    console.log(scheme('(* 3 4)'));
 //   console.log(scheme('(/)'));
 
-
 // const complete = str =>{
 //    let strRev = [...str].reverse().join('');
 //    if(str.length === 1) return str+str;
 
-
 //    console.log(str, strRev, 'два слова');
 //    console.log(str[0] === strRev[strRev.length-1], 'сравнение 1 и -1');
 //    console.log(str === strRev, 'cравнение полной строки');
-
 
 //    if (str[str.length-1] === strRev[0].toUpperCase() && str[str.length-2] === strRev[1].toUpperCase()) return str + strRev.slice(-2);
 
@@ -1423,27 +1384,25 @@
 
 //    if (str[0] === strRev[strRev.length-1].toUpperCase()) return str + strRev[strRev.length-1];
 
-   // if (str[0] === strRev[strRev.length-1] && str[1] === strRev[strRev.length-2]) return str + strRev.slice(1);
+// if (str[0] === strRev[strRev.length-1] && str[1] === strRev[strRev.length-2]) return str + strRev.slice(1);
 
-   // if(str[0] === str[0].toUpperCase()) return str+str[0]
-   // else return str+ [...str].reverse().slice(1).join('')
-// } 
+// if(str[0] === str[0].toUpperCase()) return str+str[0]
+// else return str+ [...str].reverse().slice(1).join('')
+// }
 
 //  console.log(complete("xyzx")); //(baba) => aab + aa => aabaa
 //  console.log(complete("aaBB")); //(aab) => aab + aa => aabaa
 
 // console.log(complete("AaaaA")); //(aab) => aab + aa => aabaa
 
-    // if (str[str.length-1] === strRev[0].toUpperCase() && str[str.length-2] === strRev[1]) return str + strRev.slice(-2);
+// if (str[str.length-1] === strRev[0].toUpperCase() && str[str.length-2] === strRev[1]) return str + strRev.slice(-2);
 
-
-
-    //* cложный палиндром
+//* cложный палиндром
 // const complete = str => {
 //   if(str.length === 1) return str+str
 //   if(str === [...str].reverse().join('')) return str+str.slice(1)
 // //   if(str.slice(0, -1) === [...str].reverse().slice(1).reverse().join(''))
-  
+
 // //   return str + [...str].reverse().slice(1).join('')
 // // else {
 
@@ -1472,38 +1431,37 @@
 // }
 
 // const complete = str => {
-   // *
-   // let s = ''
-   
-   // for(let i = 0; i < str.length; i++) {
-   //   s += str[i];
+// *
+// let s = ''
 
-   //   let x = str+s.split('').reverse().join('')
+// for(let i = 0; i < str.length; i++) {
+//   s += str[i];
 
-   //   if (x === x.split('').reverse().join('')) return x
-   // }
+//   let x = str+s.split('').reverse().join('')
 
+//   if (x === x.split('').reverse().join('')) return x
+// }
 
-   //*
-   // const strStart = str.split('')
-   // const strEnd = [strStart[0]]
+//*
+// const strStart = str.split('')
+// const strEnd = [strStart[0]]
 
-   // const isPalindrome = result => {
-   //     for (let i = 0; i < result.length / 2; i++) {
-   //         if (result[i] !== result[result.length - 1 - i])
-   //             return false
-   //     }
-   //     return true
-   // }
+// const isPalindrome = result => {
+//     for (let i = 0; i < result.length / 2; i++) {
+//         if (result[i] !== result[result.length - 1 - i])
+//             return false
+//     }
+//     return true
+// }
 
-   // let current = 1
+// let current = 1
 
-   // while (!isPalindrome([...strStart, ...strEnd].join(''))) {
-   //     strEnd.unshift(strStart[current])
-   //     current++
-   // }
+// while (!isPalindrome([...strStart, ...strEnd].join(''))) {
+//     strEnd.unshift(strStart[current])
+//     current++
+// }
 
-   // return [...strStart, ...strEnd].join('')
+// return [...strStart, ...strEnd].join('')
 
 //*
 //   let base = str.split("");
@@ -1518,51 +1476,48 @@
 // }
 // console.log(complete("aab")); //aabaa
 // console.log(complete("aba"));//*ababa
-// console.log(complete("Baa")); //"BaaB" 
-// console.log(complete("aaB")); //"aaBaa" 
+// console.log(complete("Baa")); //"BaaB"
+// console.log(complete("aaB")); //"aaBaa"
 // console.log(complete("x")); //*xx
 // console.log(complete("aaBB")); // ['a', 'a', 'B', 'B', 'a', 'a']
 // console.log(complete("aOOa")); //*aOOaOOa
 // console.log(complete("xyz")); //"xyzyx
-//  console.log(complete("AaaaA")); //*"AaaaAaaaA" 
+//  console.log(complete("AaaaA")); //*"AaaaAaaaA"
 //   console.log(complete("abab")); //ababa
 
+// let res = ""
 
-    // let res = ""
+// for(let i = 0; i <= str.length-1; i++){
+//    // console.log(str[i],str[str.length -1 -i]);
+//    if(str[i] !== str[i],str[str.length -1]){
+//       res += str[i]
+//       console.log(res);
+//    }
 
-   // for(let i = 0; i <= str.length-1; i++){
-   //    // console.log(str[i],str[str.length -1 -i]);
-   //    if(str[i] !== str[i],str[str.length -1]){
-   //       res += str[i]
-   //       console.log(res);
-   //    }
-      
-   // }
-   // return res
+// }
+// return res
 // (a) => a + a => aa
 // (GG) => GG + G => GGG
 // (Ab) => Ab + A => AbA
 
-
 // function cupAndBalls(b, arr){
 //    const indexArr = [];
 //   arr.forEach((elem,indx,a) => {
-//      elem.findIndex((e,i) =>{ 
-//         if(e === b && i === 0) indexArr.push(indx) 
+//      elem.findIndex((e,i) =>{
+//         if(e === b && i === 0) indexArr.push(indx)
 //       });
-//    }); 
-   
+//    });
+
 //    return arr.length > 1 ? indexArr[0] : 1
 
 //    return arr.reduce((b,[x,y]) => x === b ? y : y === b ? x : b ,b)
 
-      // return arr.flat().map((e,i) => (e === b) ? i : false).filter(e => e)[0]
+// return arr.flat().map((e,i) => (e === b) ? i : false).filter(e => e)[0]
 // };
 
 // console.log(cupAndBalls(1,[[2,3],[1,2],[1,2]])); //1
 // console.log(cupAndBalls(2,[[1,3],[1,2],[2,1],[2,3]])); //3
-// console.log(cupAndBalls(2,[[1,2]])); //1 
-
+// console.log(cupAndBalls(2,[[1,2]])); //1
 
 //? отнять элементы массивов по индексу и вернуть [мин и макс] число
 // function maxMin(arr1,arr2){
@@ -1591,7 +1546,6 @@
 //   min = Math.min(Math.abs(v - arr2[i]), min)], [max, min]),
 //    [0, Infinity])
 
-
 //  }
 //*
 //  function maxMin(arr1,arr2){
@@ -1609,10 +1563,9 @@
 //  | | |   --->  8, 5, 2
 // [9,8,7]
 
-
 //? двумерный массив увеличить по числу или сумме агрумента
 // function explode(x){
-   //*
+//*
 // const res = []
 
 // let y = x.map(e => e === parseInt(e)).every(e => !e);
@@ -1628,13 +1581,13 @@
 
 //*
 // let [a,b] = x;
-  
+
 // if(typeof a == "number" && typeof b == "number") return new Array(a+b).fill(x);
 // else if(typeof a == "number") return new Array(a).fill(x);
 // else if(typeof b == "number") return new Array(b).fill(x);
 
 // return 'Void!';
- 
+
 //* filter
 // let filtersEl = x.filter(e => typeof(e) === "number")
 //  if(filtersEl.length === 0) return "void"
@@ -1653,45 +1606,41 @@
 // console.log(explode(['a', 'b']));//'Void'
 // console.log(explode(['a', 0]));//[]
 
-
-
 // function solution(str, ending){
-   //str.slice(-ending.length).includes(ending)
-   //return str.endsWith(ending)
+//str.slice(-ending.length).includes(ending)
+//return str.endsWith(ending)
 //   }
 //   console.log(solution('sanurai', 'rai'))// true);
 //   console.log(solution('abcde', 'abc'))// false);
- 
+
 //! флат массив обьеденить из многомерных
 // var flatten = function (array){
-   // return array.flat(1)
+// return array.flat(1)
 
-   // return [].concat(...array)
+// return [].concat(...array)
 
-   // return array.reduce((a,b) => a.concat(...b) ,[])
+// return array.reduce((a,b) => a.concat(...b) ,[])
 
-   // return array.reduce((a,b) => [...a, ...b], [])
+// return array.reduce((a,b) => [...a, ...b], [])
 
-   // return [].concat(...Array.from(array))
+// return [].concat(...Array.from(array))
 //  }
 
 //  const flatten = (array) => array.reduce( (acc, item) => (Array.isArray(item ) ) ? acc = [...acc, ...item] :  acc = [...acc, item], [] );
 
 //  console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]))
- //([1, 2, 3, "a", "b", "c", 1, 2, 3]);
+//([1, 2, 3, "a", "b", "c", 1, 2, 3]);
 
 //  console.log(flatten( [[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]))
- // ([3, 4, 5, [9, 9, 9], "a,b,c"]);
-
+// ([3, 4, 5, [9, 9, 9], "a,b,c"]);
 
 //  console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
- // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
+// ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
 
 //? если цифры не дублируются превратить их в 1 а дубли в колличество повторов и дойти пока не останется два числа их просуммировать
 
-
-// lb//! while простой пока не будет равен =1 
-//! редюс считает дубли 
+// lb//! while простой пока не будет равен =1
+//! редюс считает дубли
 // let arr = input
 
 // while(arr.length !== 1) {
@@ -1710,20 +1659,20 @@
 
 //* через фор 2й вариант
 
-   // if(input.length === 1) return input[0]
+// if(input.length === 1) return input[0]
 
-   // const arr = []
-   // let cur = 0
+// const arr = []
+// let cur = 0
 
-   // for(let i = 0; i <= input.length; i++){
-   //    cur += 1;
-   //    console.log(input[i],input[i+1]);
-   //    if(input[i] !== input[i+1]){
-   //       arr.push(cur)
-   //       cur = 0
-   //    }
-   // }
-   // return setReducer(arr)
+// for(let i = 0; i <= input.length; i++){
+//    cur += 1;
+//    console.log(input[i],input[i+1]);
+//    if(input[i] !== input[i+1]){
+//       arr.push(cur)
+//       cur = 0
+//    }
+// }
+// return setReducer(arr)
 // }
 
 //  console.log(setReducer([0, 4, 6, 8, 8, 8, 5, 5, 7]));
@@ -1731,3 +1680,50 @@
 //[0, 4, 6, 8, 8, 8, 5, 5, 7] =>  [1, 1, 1, 3, 2, 1]
 //   => [3, 1, 1, 1] => [1, 3] => [1, 1] => [2]
 
+// function trim(str, size) {
+   //*
+//   if (str.length <= size) return str;
+//   if (str.length <= 3) str.slice(0, size).concat("...");
+//   str = [...str].filter((_, i) => i < size);
+//   if (str.length <= 3) return `${str.join("")}...`;
+//   else {
+//     return `${str.filter((_, i) => i < size - 3).join("")}...`;
+//   }
+
+//*
+//   return str.length > size ? `${str.slice(0, str.length < 3 ? 
+//                                           size : size -3)}...` : str
+
+//*
+   // return str.length > size ? str.substring(0, (size > 3 ? size-3 : size))+'...' : str
+
+// }
+// console.log(trim("Creating kata is fun", 14)); //"Creating ka...";
+// console.log(trim("hen", 1))//"h...";
+// console.log(trim("xzcxzcxvbvn fsdgdhfg", 50))//"xzcxzcxvbvn fsdgdhfg";
+// console.log(trim("st TZ fBQ", 3)); //"st...";
+
+//  .slice(0, size).concat('...')
+
+
+function rowSumOddNumbers(n) {
+	// let num = 0 //: number
+
+
+   // for(let i = 1; i <= n; i++){
+   //    num += i;
+   //    console.log(num);
+   // }
+
+   let num = 0
+
+   for(let i = 1; i <=n; i++){
+      num += i
+     console.log(num);
+   }
+   return num * n
+}
+
+
+console.log(rowSumOddNumbers(1)); // 1
+console.log(rowSumOddNumbers(42)); // 74088
