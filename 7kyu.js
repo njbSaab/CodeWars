@@ -1686,3 +1686,48 @@
 
 //  console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
  // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
+
+//? если цифры не дублируются превратить их в 1 а дубли в колличество повторов и дойти пока не останется два числа их просуммировать
+
+
+// lb//! while простой пока не будет равен =1 
+//! редюс считает дубли 
+// let arr = input
+
+// while(arr.length !== 1) {
+//    arr = arr.reduce((sum, el, i) =>{
+//       console.log(sum);
+//      if(arr[i - 1] === el){
+//      sum[sum.length-1] += 1;
+//       }else{
+//          sum.push(1)
+//       }
+//       return sum
+//    }, [])
+// }
+
+// return arr[0]
+
+//* через фор 2й вариант
+
+   // if(input.length === 1) return input[0]
+
+   // const arr = []
+   // let cur = 0
+
+   // for(let i = 0; i <= input.length; i++){
+   //    cur += 1;
+   //    console.log(input[i],input[i+1]);
+   //    if(input[i] !== input[i+1]){
+   //       arr.push(cur)
+   //       cur = 0
+   //    }
+   // }
+   // return setReducer(arr)
+// }
+
+//  console.log(setReducer([0, 4, 6, 8, 8, 8, 5, 5, 7]));
+//2
+//[0, 4, 6, 8, 8, 8, 5, 5, 7] =>  [1, 1, 1, 3, 2, 1]
+//   => [3, 1, 1, 1] => [1, 3] => [1, 1] => [2]
+

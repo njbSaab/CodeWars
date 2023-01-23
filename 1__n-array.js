@@ -333,3 +333,27 @@
 //  console.log(add([1, 3, 2, 4, 5], 1, 8, 2, 7));//[1,2]
 
 
+//! флат массив обьеденить из многомерных
+// var flatten = function (array){
+   // return array.flat(1)
+
+   // return [].concat(...array)
+
+   // return array.reduce((a,b) => a.concat(...b) ,[])
+
+   // return array.reduce((a,b) => [...a, ...b], [])
+
+   // return [].concat(...Array.from(array))
+//  }
+
+//  const flatten = (array) => array.reduce( (acc, item) => (Array.isArray(item ) ) ? acc = [...acc, ...item] :  acc = [...acc, item], [] );
+
+//  console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]))
+ //([1, 2, 3, "a", "b", "c", 1, 2, 3]);
+
+//  console.log(flatten( [[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]))
+ // ([3, 4, 5, [9, 9, 9], "a,b,c"]);
+
+
+//  console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
+ // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
