@@ -357,3 +357,20 @@
 
 //  console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
  // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
+
+ 
+//* вернуть по абревиатру слово 
+//! через обьект
+ // testCases = [
+//    ['dgm', 'disturbing gregarious mustache'],
+//    ['lkj', 'literal klingon joke'],
+//    ['interesting', 'ingestable newtonian turn eager rant eager stylish turn ingestable newtonian gregarious'],
+//    ['codewars', 'confident oscillating disturbing eager weird awesome rant stylish'],
+//  ];
+
+//  var makeBackronym = function(str){
+//    let firstEl = [];
+
+//    testCases.flat().forEach((el)=> firstEl.push({el}));
+
+//   return firstEl.map((elm, i, arr) => elm.el === str ? arr[++i] : null).filter(e => e)[0].el

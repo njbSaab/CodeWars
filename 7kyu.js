@@ -1681,7 +1681,7 @@
 //   => [3, 1, 1, 1] => [1, 3] => [1, 1] => [2]
 
 // function trim(str, size) {
-   //*
+//*
 //   if (str.length <= size) return str;
 //   if (str.length <= 3) str.slice(0, size).concat("...");
 //   str = [...str].filter((_, i) => i < size);
@@ -1691,11 +1691,11 @@
 //   }
 
 //*
-//   return str.length > size ? `${str.slice(0, str.length < 3 ? 
+//   return str.length > size ? `${str.slice(0, str.length < 3 ?
 //                                           size : size -3)}...` : str
 
 //*
-   // return str.length > size ? str.substring(0, (size > 3 ? size-3 : size))+'...' : str
+// return str.length > size ? str.substring(0, (size > 3 ? size-3 : size))+'...' : str
 
 // }
 // console.log(trim("Creating kata is fun", 14)); //"Creating ka...";
@@ -1705,25 +1705,187 @@
 
 //  .slice(0, size).concat('...')
 
+// function pooRoulette(p) {
+////////////////////////////////////////////////////////////
 
-function rowSumOddNumbers(n) {
-	// let num = 0 //: number
+//    let sortObjInElem = [];
+//    let verticalLine = [];
+//    let horizontLine = [];
 
 
-   // for(let i = 1; i <= n; i++){
-   //    num += i;
-   //    console.log(num);
-   // }
+//    p.forEach((el, idx) => {
+//      let findEl = el
+//        .map((e, i) => (e === "~" || e === "B" ? ++i : 0))
+//        .filter((e) => e);
 
-   let num = 0
+//      findEl.forEach((e, i) => {
+//        if (e > 0) return sortObjInElem.push({ e, idx });
+//      });
+//    });
 
-   for(let i = 1; i <=n; i++){
-      num += i
-     console.log(num);
-   }
-   return num * n
+//    sortObjInElem.forEach((item) => {
+//      verticalLine.push(item.idx);
+//      horizontLine.push(item.e);
+//    });
+
+//    const sequenceEl = (array) =>
+//      array
+//        .map((_, mapI, mapArr) => mapArr[mapI] - mapArr[mapI - 1])
+//        .filter((e) => e === 1);
+
+//    horizontLine = sequenceEl(horizontLine).length;
+//    verticalLine = sequenceEl(verticalLine).length;
+
+//    if (horizontLine === 3) return "You disgust me!";
+//    if (verticalLine === 3) return "Get the wipes!";
+//    else return "Calm before the storm";
+
+
+//////////////////////////////
+//   let finalResault = ""
+//   let filterArrWithTilda = []
+//   let findArrWithB = p.filter((e,i,arr) =>
+//                      e.find((b, i) => b.includes('B') ?  e : 0))
+//                       .flat()
+
+//     findArrWithB = findArrWithB.forEach((e,i) => e === "B" || e === "~" ? filterArrWithTilda.push(i) : 0)
+//     filterArrWithTilda.some((e,i) => e === i ? finalResault = "You disgust me!": false)
+
+//     return finalResault
+// }
+
+function pooRoulette(p) {
+   //*
+//    for (let i=0;i<p.length;i++)
+//    {
+//    if (p[i].includes('B'))
+//      {
+//        if (p[i][p[i].indexOf('B')+1]==='~'&&
+//            p[i][p[i].indexOf('B')+2]==='~'&&
+//            p[i][p[i].indexOf('B')+3]==='~'
+//        ){ return "You disgust me!"}
+//        if (p[i][p[i].indexOf('B')-1]==='~'&&
+//            p[i][p[i].indexOf('B')-2]==='~'&&
+//            p[i][p[i].indexOf('B')-3]==='~'
+//        ){ return "You disgust me!"}
+//        if (p[i-1]&&p[i-2]&&p[i-3]){
+//        if (p[i-1][p[i].indexOf('B')]==='~'&&
+//            p[i-2][p[i].indexOf('B')]==='~'&&
+//            p[i-3][p[i].indexOf('B')]==='~'
+//        ){ return "Get the wipes!"}}
+//      }
+//    }
+//  return "Calm before the storm"
+
+
+  // Horizontal Check
+//   for (let i = 0; i < p.length; i++) {
+//    for (let j = 0; j < p[i].length - 3; j++) {
+//      let cells = p[i].slice(j, j + 4).join("")
+//      if (cells === "B~~~" || cells === "~~~B") { return "You disgust me!"}
+//    }
+//  }
+ 
+//  // Vertical Check
+//  for (let i = 0; i < p[0].length; i++) {
+//    for (let j = 0; j < p.length - 3; j++) {
+//      let cells = p[j][i] + p[j+1][i] + p[j+2][i] + p[j+3][i];
+//      if (cells === "B~~~" || cells === "~~~B") { return "Get the wipes!"}
+//    }
+//  }
+ 
+//  return "Calm before the storm"
+
+//////////////////////////////
+//   let verticalArr = [];
+//    p.forEach((elem, inx) => {
+//       elem.forEach((item, i) =>{
+
+        
+//        if(item.indexOf("B") !== item.indexOf("~")) verticalArr.push(i)
+//       })
+      
+//    });
+//    return verticalArr // map((e,i,a) => a[i] - a[i - 1])
+   // .map((e,i,a) => e === a[a.length -1 -i]).every(e => e)
 }
 
+// console.log(
+//   pooRoulette([
+//     ["o", "o", "o", "o", "o", "o", "o"],
+//     ["o", "o", "o", "o", "o", "o", "o"],
+//     ["o", "o", "o", "~", "o", "o", "o"],
+//     ["o", "o", "o", "~", "o", "o", "o"],
+//     ["o", "o", "o", "~", "o", "o", "o"],
+//     ["o", "o", "o", "o", "o", "o", "o"],
+//     ["o", "o", "o", "B", "o", "o", "o"],
+//   ])
+// ); //"Get the wipes!"
 
-console.log(rowSumOddNumbers(1)); // 1
-console.log(rowSumOddNumbers(42)); // 74088
+// console.log(
+//   pooRoulette([
+//     ["o", "o", "o", "B", "o", "o", "~"],
+//     ["o", "o", "o", "~", "o", "o", "o"],
+//     ["o", "o", "~", "o", "o", "o", "o"],
+//     ["o", "o", "o", "~", "o", "o", "o"],
+//     ["o", "o", "~", "o", "o", "o", "o"],
+//     ["o", "o", "o", "~", "o", "o", "o"],
+//     ["o", "o", "o", "o", "o", "o", "o"],
+//   ])
+// ); //"You disgust me!");
+
+// console.log(
+//   pooRoulette([
+//    [ 'B', '~', '~', '~', 'o', 'o', 'o'],
+//    [ 'o', '~', 'o', 'o', 'o', 'o', 'o'],
+//    [ '~', 'o', 'o', 'o', 'o', 'o', 'o'],
+//    [ 'o', '~', 'o', 'o', 'o', 'o', 'o'],
+//    [ 'o', 'B', 'o', 'o', 'o', 'o', 'o'],
+//    [ 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+//    [ 'o', 'o', 'o', 'o', 'o', 'o', 'o']
+//    ])
+// );
+
+// console.log(
+//   pooRoulette([
+//     ["o", "o", "o", "o", "o", "o", "o"],
+//     ["o", "o", "o", "B", "o", "o", "o"],
+//     ["o", "~", "o", "~", "o", "o", "o"],
+//     ["o", "o", "~", "o", "o", "o", "o"],
+//     ["o", "o", "~", "o", "o", "o", "o"],
+//     ["o", "o", "o", "~", "o", "o", "~"],
+//     ["o", "o", "o", "o", "o", "o", "o"],
+//   ])
+// );
+
+// let arr = [1,2,3,4,5]
+
+// const arrP = (array) => {
+//       return array.map((e,i,ar) => console.log(e - ar[i - 1]))
+// }
+
+// console.log(arrP(arr));
+
+
+
+// testCases = [
+//    ['dgm', 'disturbing gregarious mustache'],
+//    ['lkj', 'literal klingon joke'],
+//    ['interesting', 'ingestable newtonian turn eager rant eager stylish turn ingestable newtonian gregarious'],
+//    ['codewars', 'confident oscillating disturbing eager weird awesome rant stylish'],
+//  ];
+
+//  var makeBackronym = function(str){
+//    let firstEl = [];
+
+//    testCases.flat().forEach((el)=> firstEl.push({el}));
+
+//   return firstEl.map((elm, i, arr) => elm.el === str ? arr[++i] : null).filter(e => e)[0].el
+   
+
+//*
+// [...str].map(el => dict[el.toUpperCase()]).join(' ')
+  
+//  };
+
+//  console.log(makeBackronym("codewars")); //'confident oscillating disturbing eager weird awesome rant stylish'
