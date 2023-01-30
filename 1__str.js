@@ -128,6 +128,8 @@
 //   console.log(solution('sanurai', 'rai'))// true);
 //   console.log(solution('abcde', 'abc'))// false);
 
+
+
 //? str должна быть равна size если длина str > 3 место символов вставляем три точки и напротив три точки плюсуем к str если длина <3 
 // function trim(str, size) {
    //*
@@ -151,3 +153,191 @@
 // console.log(trim("hen", 1))//"h...";
 // console.log(trim("xzcxzcxvbvn fsdgdhfg", 50))//"xzcxzcxvbvn fsdgdhfg";
 // console.log(trim("st TZ fBQ", 3)); //"st...";
+
+
+//? палиндром стр
+// function palindrome(str) {
+   //*
+   // return str.toLowerCase()
+   // .split('')
+   // .filter(e => e.toLowerCase() !== e.toUpperCase() ?
+   //                                 e : Number(e)? e : e === "0" ?
+   //                                 e : false)
+   // .every((e,i,arr) => e === arr[arr.length-1-i])
+
+   //*
+   // return  str.toLowerCase().split('').filter((e,i,a) => {
+   //    if(e === "0") return e
+   //    if(Number(e)) return e
+   //    else if(e.toLowerCase() !== e.toUpperCase()) return e
+   // }).every((e,i,arr) => e === arr[arr.length-1-i])
+//  }
+
+//  console.log(palindrome("101"));//true
+//  console.log(palindrome("911"));//false
+//  console.log(palindrome("RotaTor"));//true
+//  console.log(palindrome("A man, a plan, a canal - Panama"));//true
+//  console.log(palindrome("Under_scores; Serocsrednu"));//true
+//  console.log(palindrome("Abba Zabba, you're myZaaba Abba"));//false
+
+
+//? вытянуть из массива quotes номер строки который в аргументе hero
+//  var getQuote = function(quotes, hero){
+//    let numOfhero = [...hero].map(Number).filter(e => e | e === 0)[0];
+//    if(hero.includes("Rob")) hero = "Robin:"
+//    if(hero.includes("Bat")) hero = "Batman:"
+//    if(hero.includes("Jok")) hero = "Joker:"
+
+//  return`${hero} ${quotes[numOfhero]}`
+
+//  }
+//  console.log(getQuote(["WHERE IS SHE?!", "Holy haberdashery, Batman!", "Let's put a smile on that faaaceee!"]
+//  , "Rob1n"));
+//  console.log(getQuote(["WHERE IS SHE?!", "Holy haberdashery, Batman!", "Let's put a smile on that faaaceee!"]
+//  , "Batm0n"));//"Batman: WHERE IS SHE?!"
+
+
+//? посчитать согласные
+// function consonantCount(str) {
+//    let vow  = "aeiou"
+   
+
+//    return [...str].filter(e => !vow.includes(e) & e.toUpperCase() !== e.toLowerCase()).length
+//  }
+
+// console.log(consonantCount('Bbbbb'));//5
+// console.log(consonantCount('XaeiouX'));//2
+// console.log(consonantCount('012345_Cb'));//2
+// console.log(consonantCount('h^$&^#$&^1elLo world'));//7 
+
+
+//? подсчет уникальных согласных
+// function countConsonants(str) {
+//* set
+//    const vow  = "aeiou"
+   
+//   return [...new Set(str.toLowerCase())].filter(e => !vow.includes(e) & e.toUpperCase() !== e.toLowerCase()).length
+
+//*set
+// return new Set(
+//    str
+//      .toLowerCase()
+//      .split("")
+//      .filter((a) => "bcdfghjklmnpqrstvwxyz".includes(a))
+//  ).size;
+
+   
+//* reduce
+//   const isChar = c => c.toLowerCase() !== c.toUpperCase()
+//   const v = 'aeiouAEIOU'
+//   const count = {}
+  
+//   return [...str.toLowerCase()].reduce((a,c) => {
+    
+//     if(isChar(c) && !v.includes(c)){
+//       if(!count[c]) (++a, count[c] = 1)
+//     }
+//     return a
+//   },0)
+
+//* indexOF
+// return str
+// .toLowerCase()
+// .split("")
+// .filter((element, index, array) => array.indexOf(element) === index)
+// .filter(
+//   (leter) =>
+//     leter !== "a" &&
+//     leter !== "e" &&
+//     leter !== "i" &&
+//     leter !== "o" &&
+//     leter !== "u" &&
+//     leter !== "!" &&
+//     isNaN(leter)
+// ).length;
+   // }
+
+// console.log(countConsonants("Ssillystring"));//7
+// console.log(countConsonants('abcdefghijklmnopqrstuvwxyz'));//21
+// console.log(countConsonants("Count my unique consonants!!1"));
+
+
+//? вытянуть цифры из слов и подсчитать сумму
+// function sumOfIntegersInString(s) {
+
+   //* map
+   // return s.split('').map(item => isFinite(+item) ? item : ' ').join('').split(' ').filter(item => item !== '').reduce((a, b) => a + +b, 0)
+
+   //* forEach
+
+   // let str = '';
+   // let sum = 0;
+   // [...s].forEach(element => {
+   //     if(Number(element) || +element === 0){
+   //         str += element;
+   //     }else{
+   //         str += ' ';
+   //     }
+   // });
+
+   // let array = str.split(' ');
+   // let newArray = array.filter(element => element !== '');
+   // newArray.forEach(element => {
+   //     sum += +element;
+   // });
+   // return sum;
+
+
+   //*regular
+  //  return s.replace(/\D/g, " ").split(' ').reduce((a,b) => a + +b,0)
+
+  //*for
+//   let result = 0,
+//       temp = "";
+//       s += "a";
+//   console.log(s);
+  
+//   for (let i = 0; i < s.length; i++) {
+//     if (!isNaN(s[i])) {
+//       temp += s[i];
+//     }
+//     if (isNaN(s[i]) && !isNaN(s[i - 1])) {
+//       result += Number(temp);
+//       temp = "";
+//     }
+//   }
+//   return result;
+
+
+//*
+// let res = 0;
+// let chunk = [];
+
+// for (let i = 0; i < s.length; i++) {
+//     chunk = [];
+//     while(!isNaN(parseInt(s[i]))) {
+//         chunk.push(s[i]);
+//         i++;
+//     }
+
+//     if (chunk.length !== 0) {
+//         res += parseInt(chunk.join(''));
+//     }
+// }
+
+// return res;
+
+  // Array.from(s).map(Number).filter(e => !isNaN(e))
+// }
+
+// console.log(
+//   sumOfIntegersInString("The Great Depression lasted from 1929 to 1939.")
+// );
+// // 3868
+// console.log(sumOfIntegersInString("C4t5 are 4m4z1ng"));
+// //18
+// console.log(
+//   sumOfIntegersInString(
+//     "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"
+//   )
+// ); //3635

@@ -239,6 +239,97 @@
 // console.log(explode(['a', 0]));//[]
 
 
+
+
+
+//? Собрать линии в двумерном массиве и подсчитать сумму очков
+// function calculateWin(lines){
+   // let verticalLine = []
+   // let leftTop = []
+   // let leftBot = []
+   // let rigthTop = []
+   // let rigthBot = []
+
+
+   // lines.forEach((e,i,arr) => {
+   //    leftTop.push(e[i]),
+   //    leftBot.push( arr[arr.length -1 -i][i])
+   //    rigthTop.push(e.reverse()[i])
+   //    rigthBot.push(e.reverse()[arr.length -1 +i])
+   //  })
+   //  verticalLine = [[...leftTop], [...rigthTop],[...leftBot], [...rigthBot]]
+
+// verticalLine = verticalLine.map((e,i) => i === 1 ? e.map((_) => e.reverse())[0] : e)
+
+// verticalLine = verticalLine.map((e,i) =>(i%2==1)?  e.splice(1,3) : e)
+// verticalLine = [[...verticalLine[0], ...verticalLine[1]], [...verticalLine[2], ...verticalLine[3]]]
+
+// const reduceSum = arg => lines.map((el,i,a) => el.filter((e,inx,arr) => arr[inx-1] === arr[inx +1]).length+2).filter(e => e > 2).map(e=> {
+//    if(e===3) return 50
+//    if(e===4) return 150
+//    if(e===5) return 300
+// }).reduce((a,b) => a+b)
+
+// return reduceSum(verticalLine)
+
+// let res = []
+// lines.forEach((e,ind,arr) => {
+//    for(let i = 0; i < e.length; i++){
+//       for(let j = 1; j < e.length; j++){
+//         if(e[i] === e[j]) res.push(e[i]);
+//       }
+//    }
+//  })
+//  return res
+
+//*every
+// const calc = l => {
+//    if (l.every(v => v === l[0])) return 300
+//    else if (l.slice(0, 4).every(v => v === l[0])) return 150
+//    else if (l.slice(0, 3).every(v => v === l[0])) return 50
+//    else return 0
+//  }
+//  let points = 0
+//  lines.forEach(line => {
+//    points += calc(line)
+//  })
+//  points += calc([lines[2][0], lines[1][1], lines[0][2], lines[1][3], lines[2][4]])
+//  points += calc([lines[0][0], lines[1][1], lines[2][2], lines[1][3], lines[0][4]])
+//  return points
+
+//*foreEach
+// let result = 0;
+
+// lines
+// .forEach((n, i) => n
+// .forEach((m, j) => {
+//    if (j === 0) {
+//       m === n[1] && m === n[2] ? (result += 50, m === n[3]) ? (result += 100, m === n[4]) ? result += 150 : '' : '' : '';
+//       if (i === 0) {
+//          m === lines[1][1] && m === lines[2][2] ? (result += 50, m === lines[1][3]) ? (result += 100, m === lines[0][4]) ?	result += 150 : '' : '' : '';
+//       };
+//       if (i === 2) {
+//          m === lines[1][1] && m === lines[0][2] ? (result += 50, m === lines[1][3]) ? (result += 100, m === lines[2][4]) ? result += 150 : '' : '' : '';
+//       };
+//    }
+// }));
+// return result;
+
+// }
+
+
+// console.log(calculateWin([["Q","Q","Q","Q","Q"],//300
+//                          ["10","Q","Q","Q","A"], //50
+//                          ["Q","A","A", "J","Q"]]));//150
+
+// console.log(calculateWin([["10","10","10","Q","Q"]
+//                          ,["9", "9", "9", "9","A"]
+//                          ,["K", "K", "K", "K","K"]]))//500
+
+
+
+
+//?
 // function min(a, b){
 //    return Math.min(a,b);
 //  }
@@ -324,7 +415,7 @@
 // console.log(red, blue, green);
 
 
-//? посчитать собрать повторы в уникальном экземпляре
+//* посчитать собрать повторы в уникальном экземпляре
 // function add(...args) {
 
 //    return [...new Set(args.flat().filter((e,i,arr) => arr.indexOf(e) !== arr.lastIndexOf(e)))] 
@@ -358,8 +449,8 @@
 //  console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
  // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
 
- 
-//* вернуть по абревиатру слово 
+
+//* вернуть по абревиатру словa
 //! через обьект
  // testCases = [
 //    ['dgm', 'disturbing gregarious mustache'],
@@ -374,3 +465,118 @@
 //    testCases.flat().forEach((el)=> firstEl.push({el}));
 
 //   return firstEl.map((elm, i, arr) => elm.el === str ? arr[++i] : null).filter(e => e)[0].el
+
+//? котировки акции покупка на падени и продажа на максималках посчитать максимальную сумму профита 
+// function getMostProfitFromStockQuotes(quotes) {
+
+//   let maxProf = Math.max(...quotes)
+//   let indexProf = quotes.findIndex(e => e === maxProf)
+
+//   maxProf = maxProf * indexProf - quotes.slice(0, indexProf).reduce((a,b) => a + b)
+//    return maxProf
+
+
+// let arrI = [];
+// let resArr = []
+// quotes.forEach((e,i,arr) => e > arr[i-1] ? arrI.push(i) : 0)
+// arrI.forEach((e,i,arr) => {
+//   resArr.push(quotes.slice(e-e, e));
+// })
+//  return resArr.map(e => e.filter((e,i,arr) => e !== Math.max(...arr)))
+
+// let res = 0;
+
+// for(let i = 0; i < q.length; i++){
+//    console.log(q[i], q[i-1]);
+//    if(q[i] - q[i-1] ) {
+//       res += q[i] - q[i-1]
+//    }
+// }
+
+// return res
+
+//*
+// const sum = (a, b) => a + b
+
+// const getMostProfitFromStockQuotes = (quotes, current = 0) => {
+//   if (quotes.length < 2) return current 
+//   const max = Math.max(...quotes)
+//   const maxAt = quotes.indexOf(max)
+//   const left = quotes.slice(0, maxAt)
+//   const right = quotes.slice(maxAt + 1)
+  
+//   const profitOnLeft = left
+//     .map(a => max - a)
+//     .reduce(sum, 0)  
+  
+//   return getMostProfitFromStockQuotes(right, current + profitOnLeft)
+// }
+
+
+//!! reduce
+// return q.reduceRight(
+//    ([max, profit], next) =>
+//      next > max
+//        ? [next, profit]
+//        : [max, profit + max - next],
+//    [-Infinity, 0]
+//  )[1];
+
+//! reduce
+// let top=-Infinity;
+// return quotes.reduceRight((p,v)=>{
+//   if(top<v) top=v;
+//   return p+top-v;
+// }, 0);
+
+//*
+// return quotes.map((_,i) => Math.max(...quotes.slice(i)) - quotes[i])
+//              .reduce((x,y) => x + y) 
+
+// }
+
+// function getMostProfitFromStockQuotes(q) {
+// let maxProfit = 0; // initialize max
+// let lowestPrice = q[0];
+
+// for(let i = 1; i < q.length; i++){
+//     let price = q[i];
+
+//     if(price < lowestPrice) lowestPrice = price;
+//     let profit = price - lowestPrice;
+//     maxProfit = Math.max(profit, maxProfit);
+
+// }
+// return maxProfit;
+
+
+// let maxProfit = 0;
+// let lowestPrice  = q[0];
+// let min = 0;
+
+// for(let i = 1; i < q.length; i++) {
+//   min = Math.min(q[i], min);
+//     maxProfit = Math.max(maxProfit, q[i] - min);
+// }
+// return maxProfit;
+
+
+// let profit
+// let maxProfit = 0
+
+// q.forEach(function(buy, index) {
+//     let rest = q.slice(index + 1)       
+//     if (rest){
+//       let sell = Math.max(...rest)      
+//         sell > buy ? profit = sell - buy : null
+//          profit > maxProfit ? maxProfit = profit : null    
+//   }     
+// })  
+//  return maxProfit    
+
+// }
+
+// console.log(getMostProfitFromStockQuotes([ 1, 2, 3, 4, 5, 6 ]));//15
+// console.log(getMostProfitFromStockQuotes([ 1, 6, 5, 10, 8, 7 ]));//18 [1,6,5] покука - продажи  [10*3]
+
+// console.log(getMostProfitFromStockQuotes([ 1, 2, 10, 3, 2, 7, 3, 2 ]));//26 [1,2] - продажа 10*2 [3,2] - продажа 7*2

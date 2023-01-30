@@ -1638,7 +1638,6 @@
 // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
 
 //? если цифры не дублируются превратить их в 1 а дубли в колличество повторов и дойти пока не останется два числа их просуммировать
-
 // lb//! while простой пока не будет равен =1
 //! редюс считает дубли
 // let arr = input
@@ -1680,6 +1679,7 @@
 //[0, 4, 6, 8, 8, 8, 5, 5, 7] =>  [1, 1, 1, 3, 2, 1]
 //   => [3, 1, 1, 1] => [1, 3] => [1, 1] => [2]
 
+//?
 // function trim(str, size) {
 //*
 //   if (str.length <= size) return str;
@@ -1712,7 +1712,6 @@
 //    let verticalLine = [];
 //    let horizontLine = [];
 
-
 //    p.forEach((el, idx) => {
 //      let findEl = el
 //        .map((e, i) => (e === "~" || e === "B" ? ++i : 0))
@@ -1740,7 +1739,6 @@
 //    if (verticalLine === 3) return "Get the wipes!";
 //    else return "Calm before the storm";
 
-
 //////////////////////////////
 //   let finalResault = ""
 //   let filterArrWithTilda = []
@@ -1754,8 +1752,8 @@
 //     return finalResault
 // }
 
-function pooRoulette(p) {
-   //*
+// function pooRoulette(p) {
+//*
 //    for (let i=0;i<p.length;i++)
 //    {
 //    if (p[i].includes('B'))
@@ -1777,15 +1775,14 @@ function pooRoulette(p) {
 //    }
 //  return "Calm before the storm"
 
-
-  // Horizontal Check
+// Horizontal Check
 //   for (let i = 0; i < p.length; i++) {
 //    for (let j = 0; j < p[i].length - 3; j++) {
 //      let cells = p[i].slice(j, j + 4).join("")
 //      if (cells === "B~~~" || cells === "~~~B") { return "You disgust me!"}
 //    }
 //  }
- 
+
 //  // Vertical Check
 //  for (let i = 0; i < p[0].length; i++) {
 //    for (let j = 0; j < p.length - 3; j++) {
@@ -1793,7 +1790,7 @@ function pooRoulette(p) {
 //      if (cells === "B~~~" || cells === "~~~B") { return "Get the wipes!"}
 //    }
 //  }
- 
+
 //  return "Calm before the storm"
 
 //////////////////////////////
@@ -1801,14 +1798,13 @@ function pooRoulette(p) {
 //    p.forEach((elem, inx) => {
 //       elem.forEach((item, i) =>{
 
-        
 //        if(item.indexOf("B") !== item.indexOf("~")) verticalArr.push(i)
 //       })
-      
+
 //    });
 //    return verticalArr // map((e,i,a) => a[i] - a[i - 1])
-   // .map((e,i,a) => e === a[a.length -1 -i]).every(e => e)
-}
+// .map((e,i,a) => e === a[a.length -1 -i]).every(e => e)
+// }
 
 // console.log(
 //   pooRoulette([
@@ -1866,8 +1862,6 @@ function pooRoulette(p) {
 
 // console.log(arrP(arr));
 
-
-
 // testCases = [
 //    ['dgm', 'disturbing gregarious mustache'],
 //    ['lkj', 'literal klingon joke'],
@@ -1881,11 +1875,277 @@ function pooRoulette(p) {
 //    testCases.flat().forEach((el)=> firstEl.push({el}));
 
 //   return firstEl.map((elm, i, arr) => elm.el === str ? arr[++i] : null).filter(e => e)[0].el
-   
 
 //*
 // [...str].map(el => dict[el.toUpperCase()]).join(' ')
-  
+
 //  };
 
 //  console.log(makeBackronym("codewars")); //'confident oscillating disturbing eager weird awesome rant stylish'
+
+// function truncateString(str, num) {
+// Clear out that junk in your trunk
+// return str.length > num ? `${str.substring(0, num > 3 ? num -3 : num)}...` : str
+
+// return str.length > num ? str.slice(0,num>3 ? num-3 : num)+"..." : str
+
+// str.length > num ? str.slice(0, num - (num > 3) * 3) + `...` : str;
+//  }
+
+//  console.log(truncateString('chingel', 8));//'chingel'
+//  console.log(truncateString('chingel', 6));//'chi...''pippi', 3, 'pip...'
+//  console.log(truncateString('pippi', 3));// 'pip...'
+//  console.log(truncateString('chingel', 2));//'ch...'
+//  console.log(truncateString('A-tisket a-tasket A green and yellow basket', 11))// 'A-tisket...'
+
+// function sumCubes(n){
+//    let sumInCube = 0
+//    for(let i = 1; i <= n; i++){
+//       sumInCube += i**3
+//    }
+//    return sumInCube
+//  }
+
+//  console.log(sumCubes(2));
+//  console.log(sumCubes(3));
+
+//*
+// function calculateWin(lines){
+// let verticalLine = []
+// let leftTop = []
+// let leftBot = []
+// let rigthTop = []
+// let rigthBot = []
+
+// lines.forEach((e,i,arr) => {
+//    leftTop.push(e[i]),
+//    leftBot.push( arr[arr.length -1 -i][i])
+//    rigthTop.push(e.reverse()[i])
+//    rigthBot.push(e.reverse()[arr.length -1 +i])
+//  })
+//  verticalLine = [[...leftTop], [...rigthTop],[...leftBot], [...rigthBot]]
+
+// verticalLine = verticalLine.map((e,i) => i === 1 ? e.map((_) => e.reverse())[0] : e)
+
+// verticalLine = verticalLine.map((e,i) =>(i%2==1)?  e.splice(1,3) : e)
+// verticalLine = [[...verticalLine[0], ...verticalLine[1]], [...verticalLine[2], ...verticalLine[3]]]
+
+// const reduceSum = arg => lines.map((el,i,a) => el.filter((e,inx,arr) => arr[inx-1] === arr[inx +1]).length+2).filter(e => e > 2).map(e=> {
+//    if(e===3) return 50
+//    if(e===4) return 150
+//    if(e===5) return 300
+// }).reduce((a,b) => a+b)
+
+// return reduceSum(verticalLine)
+
+// let res = []
+// lines.forEach((e,ind,arr) => {
+//    for(let i = 0; i < e.length; i++){
+//       for(let j = 1; j < e.length; j++){
+//         if(e[i] === e[j]) res.push(e[i]);
+//       }
+//    }
+//  })
+//  return res
+
+//*every
+// const calc = l => {
+//    if (l.every(v => v === l[0])) return 300
+//    else if (l.slice(0, 4).every(v => v === l[0])) return 150
+//    else if (l.slice(0, 3).every(v => v === l[0])) return 50
+//    else return 0
+//  }
+//  let points = 0
+//  lines.forEach(line => {
+//    points += calc(line)
+//  })
+//  points += calc([lines[2][0], lines[1][1], lines[0][2], lines[1][3], lines[2][4]])
+//  points += calc([lines[0][0], lines[1][1], lines[2][2], lines[1][3], lines[0][4]])
+//  return points
+
+//*foreEach
+// let result = 0;
+
+// lines
+// .forEach((n, i) => n
+// .forEach((m, j) => {
+//    if (j === 0) {
+//       m === n[1] && m === n[2] ? (result += 50, m === n[3]) ? (result += 100, m === n[4]) ? result += 150 : '' : '' : '';
+//       if (i === 0) {
+//          m === lines[1][1] && m === lines[2][2] ? (result += 50, m === lines[1][3]) ? (result += 100, m === lines[0][4]) ?	result += 150 : '' : '' : '';
+//       };
+//       if (i === 2) {
+//          m === lines[1][1] && m === lines[0][2] ? (result += 50, m === lines[1][3]) ? (result += 100, m === lines[2][4]) ? result += 150 : '' : '' : '';
+//       };
+//    }
+// }));
+// return result;
+
+// }
+
+// console.log(calculateWin([["Q","Q","Q","Q","Q"],//300
+//                          ["10","Q","Q","Q","A"], //50
+//                          ["Q","A","A", "J","Q"]]));//150
+
+// console.log(calculateWin([["10","10","10","Q","Q"]
+//                          ,["9", "9", "9", "9","A"]
+//                          ,["K", "K", "K", "K","K"]]))//500
+
+// function quotable(name, quote){
+//   return `${name} said: "${quote}"`
+//  }
+
+//  console.log(quotable('Grae', 'Practice makes perfect'));//'Grae said: "Practice makes perfect"'
+//  console.log(quotable('Darrell', 'What the heck is this thing?'));//'Grae said: "Practice makes perfect"'
+
+//  var getQuote = function(quotes, hero){
+//    let numOfhero = [...hero].map(Number).filter(e => e | e === 0)[0];
+//    if(hero.includes("Rob")) hero = "Robin:"
+//    if(hero.includes("Bat")) hero = "Batman:"
+//    if(hero.includes("Jok")) hero = "Joker:"
+
+//  return`${hero} ${quotes[numOfhero]}`
+
+//  }
+//  console.log(getQuote(["WHERE IS SHE?!", "Holy haberdashery, Batman!", "Let's put a smile on that faaaceee!"]
+//  , "Rob1n"));
+//  console.log(getQuote(["WHERE IS SHE?!", "Holy haberdashery, Batman!", "Let's put a smile on that faaaceee!"]
+//  , "Batm0n"));
+
+//? посчитать согласные
+// function consonantCount(str) {
+//    let vow  = "aeiou"
+
+//    return [...str].filter(e => !vow.includes(e) & e.toUpperCase() !== e.toLowerCase()).length
+//  }
+
+// console.log(consonantCount('Bbbbb'));//5
+// console.log(consonantCount('XaeiouX'));//2
+// console.log(consonantCount('012345_Cb'));//2
+// console.log(consonantCount('h^$&^#$&^1elLo world'));//7
+
+//? подсчет уникальных согласных
+// function countConsonants(str) {
+//* set
+//    const vow  = "aeiou"
+
+//   return [...new Set(str.toLowerCase())].filter(e => !vow.includes(e) & e.toUpperCase() !== e.toLowerCase()).length
+
+//*set
+// return new Set(
+//    str
+//      .toLowerCase()
+//      .split("")
+//      .filter((a) => "bcdfghjklmnpqrstvwxyz".includes(a))
+//  ).size;
+
+//* reduce
+//   const isChar = c => c.toLowerCase() !== c.toUpperCase()
+//   const v = 'aeiouAEIOU'
+//   const count = {}
+
+//   return [...str.toLowerCase()].reduce((a,c) => {
+
+//     if(isChar(c) && !v.includes(c)){
+//       if(!count[c]) (++a, count[c] = 1)
+//     }
+//     return a
+//   },0)
+
+//* indexOF
+// return str
+// .toLowerCase()
+// .split("")
+// .filter((element, index, array) => array.indexOf(element) === index)
+// .filter(
+//   (leter) =>
+//     leter !== "a" &&
+//     leter !== "e" &&
+//     leter !== "i" &&
+//     leter !== "o" &&
+//     leter !== "u" &&
+//     leter !== "!" &&
+//     isNaN(leter)
+// ).length;
+
+// }
+// console.log(countConsonants("Ssillystring"));//7
+// console.log(countConsonants('abcdefghijklmnopqrstuvwxyz'));//21
+// console.log(countConsonants("Count my unique consonants!!1"));
+
+
+//? вытянуть цифры из слов и подсчитать сумму
+// function sumOfIntegersInString(s) {
+   //* forEach
+
+   // let str = '';
+   // let sum = 0;
+   // [...s].forEach(element => {
+   //     if(Number(element) || +element === 0){
+   //         str += element;
+   //     }else{
+   //         str += ' ';
+   //     }
+   // });
+
+   // let array = str.split(' ');
+   // let newArray = array.filter(element => element !== '');
+   // newArray.forEach(element => {
+   //     sum += +element;
+   // });
+   // return sum;
+
+
+   //*regular
+  //  return s.replace(/\D/g, " ").split(' ').reduce((a,b) => a + +b,0)
+
+  //*for
+//   let result = 0,
+//       temp = "";
+//       s += "a";
+//   console.log(s);
+  
+//   for (let i = 0; i < s.length; i++) {
+//     if (!isNaN(s[i])) {
+//       temp += s[i];
+//     }
+//     if (isNaN(s[i]) && !isNaN(s[i - 1])) {
+//       result += Number(temp);
+//       temp = "";
+//     }
+//   }
+//   return result;
+
+
+//*
+// let res = 0;
+// let chunk = [];
+
+// for (let i = 0; i < s.length; i++) {
+//     chunk = [];
+//     while(!isNaN(parseInt(s[i]))) {
+//         chunk.push(s[i]);
+//         i++;
+//     }
+
+//     if (chunk.length !== 0) {
+//         res += parseInt(chunk.join(''));
+//     }
+// }
+
+// return res;
+
+  // Array.from(s).map(Number).filter(e => !isNaN(e))
+// }
+
+// console.log(
+//   sumOfIntegersInString("The Great Depression lasted from 1929 to 1939.")
+// );
+// // 3868
+// console.log(sumOfIntegersInString("C4t5 are 4m4z1ng"));
+// //18
+// console.log(
+//   sumOfIntegersInString(
+//     "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"
+//   )
+// ); //3635
