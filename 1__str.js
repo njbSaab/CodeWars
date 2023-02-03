@@ -341,3 +341,96 @@
 //     "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"
 //   )
 // ); //3635
+
+
+//? сделать из строки CamelCase
+// function toCamelCase(str) {
+  //*
+  // let res = ""
+
+  //    for(let letter of str){
+  //       if(letter.toUpperCase() === letter.toLowerCase()) letter = " ";
+  //       res +=letter
+  //    }
+
+  // res = res.split(' ').map((e,i,a) => e[0].toUpperCase() + e.slice(1)).join('')
+  // return res[0].toLowerCase() +res.slice(1)
+
+  //* for
+  // let capitalize = (str) => str[0].toUpperCase() + str.slice(1)
+  // let strArr
+
+  // if(str === ""){
+  //    return ""
+  // }
+  // if(str.indexOf("-") !== -1) strArr = str.split("-")
+  // else strArr = str.split("_")
+
+  // let camelCaseStr = strArr[0]
+
+  // for(let i = 1; i < strArr.length; i++){
+  //    camelCaseStr += capitalize(strArr[i])
+
+  // }
+  // return camelCaseStr
+ //* 
+  // let arr = str.split('');
+  // for(i = 0; i < arr.length; i++){
+  //   let letter = arr[i];
+  //   if(letter == '_' || letter == '-') {
+  //     arr[i + 1] = arr[i + 1].toUpperCase();
+  //     arr[i] = '';
+  //   }
+  // }
+  // return arr.join('');
+
+  //*map
+//   if (!str) return str;
+//   const contains = str.includes("-") ? "-" : "_";
+//   let camalCase = str
+//     .split(contains)
+//     .map((str, i) => {
+//       if (i === 0) return str;
+//       return str[0].toUpperCase() + str.slice(1);
+//     })
+//     .join("");
+//   return camalCase;
+
+  //* 
+  // let dash = "-_"
+
+  // return str.split('').map((e,i,a) => {
+  //    if(dash.indexOf(e) > -1) return "";
+  //    else if(dash.indexOf(a[i-1]) > -1) return e.toUpperCase()
+  //    else return e
+  // }).join('')
+
+  //*
+  // let arr = str.split("-").join(".").split("_").join(".").split(".");
+  // let first = arr.shift();
+  // let c = arr.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+  // return first + c.join('');
+// }
+
+// console.log(toCamelCase("the_stealth_warrior")); // theStealthWarrior
+// console.log(toCamelCase("The-Stealth-Warrior")); // TheStealthWarrior
+// console.log(toCamelCase("A-B-C")); //ABC
+// console.log(toCamelCase(""));
+
+
+//? сумма юникода букв
+// function theVar(theVariables) {
+   // let letterD = theVariables.slice(0,1) 
+   // letterD = 5;
+   // let letterG = theVariables.slice(-1)
+   // letterG = 6
+   // return letterD + letterG
+
+   //*
+   // return '0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[0])+'0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[2])
+
+   //*
+   // return theVariables.charCodeAt(0) + theVariables.charCodeAt(2) - 2 * 96;
+//  }
+
+//  console.log(theVar('d+g'));//11

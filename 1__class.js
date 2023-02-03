@@ -412,3 +412,19 @@
 //!______________________________SET______________________________
 // const uniqVal = arr => [...new Set(arr)] // Array.from(new Set))
 // console.log(uniqVal([1,1,3,4,5,6,6,7,7,7,7,7,7,8]));
+
+
+
+//!______________________________ metods
+//*
+// Number.prototype.toString = function() {return "" + this;}
+// Array.prototype.toString = function() {return "[" + this.join(",") + "]";}
+// Boolean.prototype.toString = function() {return "" + this;}
+// Object.prototype.toString = function() {return "" + this;}
+
+//*
+// Boolean.prototype.toString = Number.prototype.toString = Array.prototype.toString =
+// function() { return JSON.stringify(this); }
+
+//*
+// [Boolean, Number, Array].forEach( obj => obj.prototype.toString = function(){ return JSON.stringify(this) } );

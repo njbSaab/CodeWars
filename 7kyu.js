@@ -2149,3 +2149,32 @@
 //     "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"
 //   )
 // ); //3635
+
+
+// const arrCheck = value =>{
+//   return value
+// }
+
+// console.log(arrCheck([]));
+// console.log(arrCheck([['string']]));//tr
+// console.log(arrCheck([[[],{}]]));//fals
+// console.log(arrCheck([[1],[2],[3]]));//true
+// console.log(arrCheck(['A', 'R', 'R', 'A', 'Y']));//false
+
+
+//? сумма юникода букв
+// function theVar(theVariables) {
+   // let letterD = theVariables.slice(0,1) 
+   // letterD = 5;
+   // let letterG = theVariables.slice(-1)
+   // letterG = 6
+   // return letterD + letterG
+
+   //*
+   // return '0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[0])+'0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[2])
+
+   //*
+   // return theVariables.charCodeAt(0) + theVariables.charCodeAt(2) - 2 * 96;
+//  }
+
+//  console.log(theVar('d+g'));//11
