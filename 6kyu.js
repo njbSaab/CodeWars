@@ -342,3 +342,41 @@
 // console.log(toCamelCase("The-Stealth-Warrior")); // TheStealthWarrior
 // console.log(toCamelCase("A-B-C")); //ABC
 // console.log(toCamelCase(""));
+
+
+//? Найти не последовательную букву из алфавита
+// function findMissingLetter(arr){
+  //*
+  // let alphabet ='abcdefghijklmnopqrstuvwxyz'
+  // let arrInLower = arr.join('').toLowerCase()
+ 
+  //  let indxElem = [...alphabet].map((e,i,a) => arrInLower.indexOf(e)>=0 ? i : void 0).filter(e => e >= 0).filter((elem, indx, arr) => arr[indx+1] - elem > 1)[0] + 1
+
+  // return arr[0] === arr[0].toUpperCase()  ? alphabet[indxElem].toUpperCase():alphabet[indxElem]
+
+  //! CharCode
+  // let i=arr[0].charCodeAt();
+  // arr.map(x=>  x.charCodeAt()==i?i++:i);
+  // return String.fromCharCode(i);  
+
+  //*
+  // return String.fromCodePoint(array.map(x => x.codePointAt(0)).find((current,index,array) => index && current-array[index-1] > 1)-1)
+  
+  //! indexOF
+  // const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  // const start = alphabet.indexOf(arr[0]);
+  // return alphabet.slice(start, start + arr.length).find(el => !arr.includes(el));
+
+  //! indexOF
+
+//   const a = (arr[0] === arr[0].toLowerCase())
+//   ? 'abcdefghijklmnopqrstuvwxyz'
+//   : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+// const range = a.slice(a.indexOf(arr[0]), a.indexOf(arr[arr.length -1]) + 1);
+
+// return [...range].filter(char => arr.indexOf(char) === -1).join('');
+// }
+
+// console.log(findMissingLetter(['a','b','c','d','f']));//e
+// console.log(findMissingLetter(['O','Q','R','S']));//P

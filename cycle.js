@@ -523,11 +523,36 @@
 //    console.log(nextPal(191));
 //    console.log(nextPal(202));
 
+
+// function dontGiveMeFive(start, end){
+  //*
+  // return Array.from(Array(end-start+1),(e,i)=>i+start)
+  // .filter((e)=>(''+e).indexOf('5')===-1)
+  // .length;
+
+  //*
+  // return [...Array(end - start + 1).keys()].map(el => el + start).filter(el => ![...(el.toString())].includes("5")).length
+
+  //*
+  // return Array(end-start+1).fill().map((e,i)=>start+i).filter(e=>e.toString().indexOf("5")===-1).length
+
+  //*
+  // [...new Array((e - s) + 1)]
+
+// }
+
+// console.log(dontGiveMeFive(1,9));//8
+// console.log(dontGiveMeFive(4,17));//12
+
 //? Числовой палиндром
 // function nextPal(val) {
    //! Переобразование набер в массив
 //    let characters = Array.from(String(val), Number)
    // let isPalindrome = true
+
+   //! создать интерированный массив из числа
+   // Array.from({length : n}, (x,i) => i + 1)
+
   
    //* Вариант без переменной isPalindrome сразу фалсе или тру
    // for(let i = 0; i <= characters.length; i++){
@@ -549,8 +574,6 @@
    // console.log(nextPal(20002));
    // console.log(nextPal(2021));
 
-//! создать интерированный массив из числа
-   // Array.from({length : n}, (x,i) => i + 1)
 
 
 
@@ -709,6 +732,9 @@
 
 
 
+
+
+
 //!________________________переобразование строк и числе в массив
 
 //!  через Array.from цифры
@@ -737,4 +763,76 @@
 
    // console.log(modifyMultiply ("This is a string",3,5)); //string-string-string-string-string
 
+//! собрать дубли 
+//? последовательность элементов в массиве   
+// const distributeEvenly = (arr) => {
 
+  //!хоршие решение 
+  // const uniqArr = [...new Set(arr)]
+  // const arrOfTypes = uniqArr.map(e => arr.filter(inner => e === inner))
+  // //cобрать все повторы в разные массивы
+
+  // return arr.map((item,i) => arrOfTypes.map(el => el[i]))
+  //           //разбить по индексу все повторы последовольно
+  //           .reduce((a,b) => [...a, ...b])
+  //           //конкат массива
+  //           .filter(e => e)
+
+  //! сложное решение собрать в обьект все дубли
+  // const arr = Object.values(array.reduce((acc, e) => ({...acc, [e]: (acc[e] || []).concat(e)}),{}))
+  // return Array.from({length: Math.max(...arr.map(({length}) => length))}).reduce((acc, _, i) => [...acc, ...arr.map(e => e[i]).filter(Boolean)] ,[])
+
+
+  //! собрать дубли 
+  //* forEach
+  // let obj={};
+  // arr.forEach(o=>obj[o]=(obj[o]||0)+1);
+
+  // arr.forEach(x => {
+  //   if (!(x in temp) ) temp[x] = 0;
+  //   temp[x]++;
+  // });
+
+  // const map = {};
+  // array.forEach(item => {
+  //   if (map[item]) map[item].push(item);
+  //   else map[item] = [item];
+
+
+  // count = {} 
+  // array.forEach(function (ele) {
+  //   if (ele in count) {
+  //     count[ele] += 1
+  //   } else {
+  //     count[ele] = 1 
+  //   }
+  // })
+  
+
+  //* reduce
+  // let counts = arr.reduce((m,v) => (m[v] = 1 + (m[v] || 0), m), {})
+
+  // const x = array.reduce((a,b) => {
+  //   a[b] ? a[b]++ : a[b] = 1
+  //   return a;
+  // },{});
+
+  // let counts = xs.reduce((a,x) => (a[x] = (a[x] || 0) + 1, a), {});
+  //*for of
+  // const counts = {}
+
+  // for (const item of array) {
+  //   counts[item] = (counts[item] || 0) + 1
+  // }
+
+  //*for 
+  //  const obj = {};
+  
+  //  for( let i = 0; i < arr.length; i++ ) {    
+  //    obj[arr[i]] !== undefined ? obj[arr[i]] = obj[arr[i]] + 1 : obj[arr[i]] = 0;
+  //  }
+
+// };
+// console.log(distributeEvenly(['one', 'one', 'two', 'two', 'three', 'three', 'four', 'one']));
+
+// ['one', 'two', 'three', 'four', 'one', 'two', 'three', 'one'];
