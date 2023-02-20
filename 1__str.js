@@ -473,3 +473,99 @@
 
 // console.log(findMissingLetter(['a','b','c','d','f']));//e
 // console.log(findMissingLetter(['O','Q','R','S']));//P
+
+
+//? вставить анд между двумя словами если их два и больше, если 1 словo вернуть словo если нет слова вернуть ''
+// function formatWords(words){
+//! сделать заготовку isNotEmpty убрать все пустые
+//  const isNotEmpty = x => !!x
+//  return words.filter(isNotEmpty)
+
+//*
+//  if (words === null) return ''
+//  const arrWords = words.filter(_=>_) 
+//   if(arrWords.length < 1) return ""
+//   if(arrWords.length === 1) return arrWords[0]
+//   const lastWord = arrWords[arrWords.length-1]
+//     return `${arrWords.slice(0,-1).join(', ')} and ${lastWord}`
+
+//*
+// if (!words || words.length < 1) {
+//   return ''
+// } else {
+//    return  words
+//   .filter(Boolean)
+//   .join(', ')
+//   .split('').reverse().join('')
+//   .replace(' ,', ' dna ')
+//   .split('').reverse().join('')
+// }
+
+//*
+    // if (words === [] || words === null) return "";
+    // words = words.filter(function(n){ return n !== '' })  
+    // return words.map(function(a, i){  if (i == words.length-2)  return a + " and";  return a + ","  }).join(" ").slice(0, -1);
+
+// }
+// console.log(formatWords(['','','andrew']));
+// console.log(formatWords(['ninja', 'samurai', 'ronin']));
+// console.log(formatWords(['ninja', '', 'ronin']));
+// console.log(formatWords(['ninja']));
+// console.log(formatWords(['one', 'two', '']));
+// console.log(formatWords(['one']));
+//  console.log(formatWords(null));
+// console.log(formatWords(['']));
+// console.log(formatWords([]));
+
+
+
+
+
+//? Поднять букву начиная с заглавной +1 по индексу
+// function wave(str){
+  //* мой вариант не подходит у меня учитывает отступ и сбивается индекс
+// return Array.from({length:str.length}, (_,i) => str)
+//             .map((e,i) => [...e]
+//             .map((el,indx) => i === indx ? el.toUpperCase():el)
+//             .join('')
+//             )
+
+//* стандартный вариант как если поднять заглавную тольок здесь кадлую
+// return [...str].map((elm,i) => str.slice(0,i) + elm.toUpperCase() + str.slice(i+1)).filter(x => x!= str)
+
+
+//*
+// let waveArr = [];
+// for(let i = 0; i < str.length; i++) {
+//   let letter = str[i];
+//   if (letter === " ") {
+  //! если надо пропустить continue
+//     continue;
+//   } else {
+//     waveArr.push(str.slice(0, i) + letter.toUpperCase() + str.slice(i + 1))
+//   } 
+// }
+// return waveArr;
+
+//* array from
+// const wave = str => Array.from({length:str.length}, (_,i) => str.slice(0,i)+str[i].toUpperCase()+str.slice(i+1)).filter(x => x!=str);
+
+
+//! reduce
+// const wave = str => str.split("").reduce((acc, val, i, [...arr]) => {
+//   if(val === " ") return acc;
+//   arr[i] = arr[i].toUpperCase();
+//   acc.push(arr.join(""));
+//   return acc;
+// }, []);
+// }
+
+// console.log(wave('two words'));
+// ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
+
+// Should return: 'Two words,tWo words,twO words,two Words,two wOrds,two woRds,two worDs,two wordS':
+//  expected 
+
+//  [ 'Two words', 'tWo words', 'twO words', 'two words', 'two Words', 'two wOrds', 'two woRds', 'two worDs', 'two wordS' ]
+//   to deeply equal 
+//   [ 'Two words', 'tWo words', 'twO words', 'two Words', 'two wOrds', 'two woRds', 'two worDs', 'two wordS' ]

@@ -380,3 +380,171 @@
 
 // console.log(findMissingLetter(['a','b','c','d','f']));//e
 // console.log(findMissingLetter(['O','Q','R','S']));//P
+
+//? разделить массив на подмасивы где длина подсива === ленс, вернуть в реверсе
+// function selReverse(array, length) {
+  //*
+  // let subArr = []
+  // for(let i = 0; i < Math.ceil(array.length/length); i++){
+  //   //! разделить массив на несколько массивов 
+  //    subArr[i] = array.slice((i * length), (i*length) + length)
+  // }
+  // return subArr
+
+  //*
+  // const res = []
+  // //! в каждом шаге пушим разделеный массив
+  // for(let s =0, e=length; s < array.length; s+= length, e+= length){
+  //   res.push(array.slice(s,e))
+  // }
+  // return res
+  
+  //*forEach
+  // let partsOfArr = []
+
+  // if(length === 0) return array
+
+  // else 
+  // array.forEach((_,i) => {
+  //    partsOfArr.push(array.slice((i * length), (i*length) + length))
+  // });
+
+  // return partsOfArr.filter((e,i,arr) =>{
+  //    arr[i].reverse();
+  //   return e.length}).flat()
+
+  //*
+    // const selReverse = (array, length) => length === 0 ? array: array.length >= 1 ? array.slice(0,length).reverse().concat(selReverse(array.splice(length),length)) : []
+
+  //! reduce + map
+    // return array.reduce((acc,n) =>{  
+    //   if(acc[0].length < length){
+    //     acc[0].push(n)
+    //   }else{
+    //     acc.unshift([n])
+    //   }
+    //   return acc
+    // },[[]]).reverse()
+    // .map(arr => arr.reverse())
+    // .reduce((a,b) => [...a, ...b])
+
+    //*reduce
+    // return !length? array:Array(Math.ceil(array.length/length)).fill()
+    //         .map((_,i)=>i*length).reduce((acc,cur) => {
+    //           return acc.concat(array.slice(cur, cur+length).reverse())
+    //         },[])
+
+    
+  //чуть другое но тоже разделяет массив на количесво 
+  // return [...Array(Math.ceil(array.length/length))].map((_,indx) => array.filter((_,i) => i % length === 0))
+// }
+// console.log(selReverse([2,4,6,8,10,12,14,16], 3));
+//[6,4,2,12,10,8,16,14]
+// console.log(selReverse([1,2,3,4,5,6], 2));
+//[2,1,4,3,6,5]
+// console.log(selReverse([1,2,3,4,5,6], 0));
+
+//? вставить анд между двумя словами если их два и больше, если 1 словo вернуть словo если нет слова вернуть ''
+// function formatWords(words){
+//! сделать заготовку isNotEmpty убрать все пустые
+//  const isNotEmpty = x => !!x
+//  return words.filter(isNotEmpty)
+
+//*
+//  if (words === null) return ''
+//  const arrWords = words.filter(_=>_) 
+//   if(arrWords.length < 1) return ""
+//   if(arrWords.length === 1) return arrWords[0]
+//   const lastWord = arrWords[arrWords.length-1]
+//     return `${arrWords.slice(0,-1).join(', ')} and ${lastWord}`
+
+//*
+// if (!words || words.length < 1) {
+//   return ''
+// } else {
+//    return  words
+//   .filter(Boolean)
+//   .join(', ')
+//   .split('').reverse().join('')
+//   .replace(' ,', ' dna ')
+//   .split('').reverse().join('')
+// }
+
+//*
+    // if (words === [] || words === null) return "";
+    // words = words.filter(function(n){ return n !== '' })  
+    // return words.map(function(a, i){  if (i == words.length-2)  return a + " and";  return a + ","  }).join(" ").slice(0, -1);
+
+// }
+// console.log(formatWords(['','','andrew']));
+// console.log(formatWords(['ninja', 'samurai', 'ronin']));
+// console.log(formatWords(['ninja', '', 'ronin']));
+// console.log(formatWords(['ninja']));
+// console.log(formatWords(['one', 'two', '']));
+// console.log(formatWords(['one']));
+//  console.log(formatWords(null));
+// console.log(formatWords(['']));
+// console.log(formatWords([]));
+
+
+//? Поднять букву начиная с заглавной +1 по индексу
+// function wave(str){
+  //* мой вариант не подходит у меня учитывает отступ и сбивается индекс
+// return Array.from({length:str.length}, (_,i) => str)
+//             .map((e,i) => [...e]
+//             .map((el,indx) => i === indx ? el.toUpperCase():el)
+//             .join('')
+//             )
+
+//* стандартный вариант как если поднять заглавную тольок здесь кадлую
+// return [...str].map((elm,i) => str.slice(0,i) + elm.toUpperCase() + str.slice(i+1)).filter(x => x!= str)
+
+
+//*
+// let waveArr = [];
+// for(let i = 0; i < str.length; i++) {
+//   let letter = str[i];
+//   if (letter === " ") {
+  //! если надо пропустить continue
+//     continue;
+//   } else {
+//     waveArr.push(str.slice(0, i) + letter.toUpperCase() + str.slice(i + 1))
+//   } 
+// }
+// return waveArr;
+
+
+//! reduce
+// const wave = str => str.split("").reduce((acc, val, i, [...arr]) => {
+//   if(val === " ") return acc;
+//   arr[i] = arr[i].toUpperCase();
+//   acc.push(arr.join(""));
+//   return acc;
+// }, []);
+// }
+
+// console.log(wave('two words'));
+// ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
+
+// Should return: 'Two words,tWo words,twO words,two Words,two wOrds,two woRds,two worDs,two wordS':
+//  expected 
+
+//  [ 'Two words', 'tWo words', 'twO words', 'two words', 'two Words', 'two wOrds', 'two woRds', 'two worDs', 'two wordS' ]
+//   to deeply equal 
+//   [ 'Two words', 'tWo words', 'twO words', 'two Words', 'two wOrds', 'two woRds', 'two worDs', 'two wordS' ]
+
+
+
+
+function countInversions( array ){
+  // TODO 
+  let count = 0 
+  array.forEach((e,i,a) => {
+    console.log(a[i], a[--i]);
+  })
+  return count 
+}
+
+console.log(countInversions([2,1,3]));
+console.log(countInversions([6,5,4,3,2,1]));
+// 6,5,4,3,2,1

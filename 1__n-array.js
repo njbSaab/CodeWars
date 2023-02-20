@@ -718,3 +718,70 @@
 // console.log(distributeEvenly(['one', 'one', 'two', 'two', 'three', 'three', 'four', 'one']));
 
 // ['one', 'two', 'three', 'four', 'one', 'two', 'three', 'one'];
+
+
+
+//? разделить массив на подмасивы где длина подсива === ленс, вернуть в реверсе
+// function selReverse(array, length) {
+  //*
+  // let subArr = []
+  // for(let i = 0; i < Math.ceil(array.length/length); i++){
+  //   //! разделить массив на несколько массивов 
+  //    subArr[i] = array.slice((i * length), (i*length) + length)
+  // }
+  // return subArr
+
+  //*
+  // const res = []
+  // //! в каждом шаге пушим разделеный массив
+  // for(let s =0, e=length; s < array.length; s+= length, e+= length){
+  //   res.push(array.slice(s,e))
+  // }
+  // return res
+  
+  //*forEach
+  // let partsOfArr = []
+
+  // if(length === 0) return array
+
+  // else 
+  // array.forEach((_,i) => {
+  //    partsOfArr.push(array.slice((i * length), (i*length) + length))
+  // });
+
+  // return partsOfArr.filter((e,i,arr) =>{
+  //    arr[i].reverse();
+  //   return e.length}).flat()
+
+  //*
+    // const selReverse = (array, length) => length === 0 ? array: array.length >= 1 ? array.slice(0,length).reverse().concat(selReverse(array.splice(length),length)) : []
+
+  //! reduce + map
+    // return array.reduce((acc,n) =>{  
+    //   if(acc[0].length < length){
+    //     acc[0].push(n)
+    //   }else{
+    //     acc.unshift([n])
+    //   }
+    //   return acc
+    // },[[]]).reverse()
+    // .map(arr => arr.reverse())
+    // .reduce((a,b) => [...a, ...b])
+
+    //*reduce
+    // return !length? array:Array(Math.ceil(array.length/length)).fill()
+    //         .map((_,i)=>i*length).reduce((acc,cur) => {
+    //           return acc.concat(array.slice(cur, cur+length).reverse())
+    //         },[])
+
+   //* array from
+   //  Array.from({length:Math.ceil(arr.length/l)},(a,i)=>arr.slice(i*l,i*l+l).reverse()).reduce((a,b)=>a.concat(b),[]) : arr;
+    
+  //* чуть другое но тоже разделяет массив на количесво 
+  // return [...Array(Math.ceil(array.length/length))].map((_,indx) => array.filter((_,i) => i % length === 0))
+// }
+// console.log(selReverse([2,4,6,8,10,12,14,16], 3));
+//[6,4,2,12,10,8,16,14]
+// console.log(selReverse([1,2,3,4,5,6], 2));
+//[2,1,4,3,6,5]
+// console.log(selReverse([1,2,3,4,5,6], 0));
