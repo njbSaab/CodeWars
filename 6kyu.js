@@ -271,46 +271,46 @@
 // console.log(getMostProfitFromStockQuotes([ 1, 2, 10, 3, 2, 7, 3, 2 ]));//26
 
 // function toCamelCase(str) {
-  //*
-  // let res = ""
+//*
+// let res = ""
 
-  //    for(let letter of str){
-  //       if(letter.toUpperCase() === letter.toLowerCase()) letter = " ";
-  //       res +=letter
-  //    }
+//    for(let letter of str){
+//       if(letter.toUpperCase() === letter.toLowerCase()) letter = " ";
+//       res +=letter
+//    }
 
-  // res = res.split(' ').map((e,i,a) => e[0].toUpperCase() + e.slice(1)).join('')
-  // return res[0].toLowerCase() +res.slice(1)
+// res = res.split(' ').map((e,i,a) => e[0].toUpperCase() + e.slice(1)).join('')
+// return res[0].toLowerCase() +res.slice(1)
 
-  //* for
-  // let capitalize = (str) => str[0].toUpperCase() + str.slice(1)
-  // let strArr
+//* for
+// let capitalize = (str) => str[0].toUpperCase() + str.slice(1)
+// let strArr
 
-  // if(str === ""){
-  //    return ""
-  // }
-  // if(str.indexOf("-") !== -1) strArr = str.split("-")
-  // else strArr = str.split("_")
+// if(str === ""){
+//    return ""
+// }
+// if(str.indexOf("-") !== -1) strArr = str.split("-")
+// else strArr = str.split("_")
 
-  // let camelCaseStr = strArr[0]
+// let camelCaseStr = strArr[0]
 
-  // for(let i = 1; i < strArr.length; i++){
-  //    camelCaseStr += capitalize(strArr[i])
+// for(let i = 1; i < strArr.length; i++){
+//    camelCaseStr += capitalize(strArr[i])
 
-  // }
-  // return camelCaseStr
- //* 
-  // let arr = str.split('');
-  // for(i = 0; i < arr.length; i++){
-  //   let letter = arr[i];
-  //   if(letter == '_' || letter == '-') {
-  //     arr[i + 1] = arr[i + 1].toUpperCase();
-  //     arr[i] = '';
-  //   }
-  // }
-  // return arr.join('');
+// }
+// return camelCaseStr
+//*
+// let arr = str.split('');
+// for(i = 0; i < arr.length; i++){
+//   let letter = arr[i];
+//   if(letter == '_' || letter == '-') {
+//     arr[i + 1] = arr[i + 1].toUpperCase();
+//     arr[i] = '';
+//   }
+// }
+// return arr.join('');
 
-  //*map
+//*map
 //   if (!str) return str;
 //   const contains = str.includes("-") ? "-" : "_";
 //   let camalCase = str
@@ -322,20 +322,20 @@
 //     .join("");
 //   return camalCase;
 
-  //* 
-  // let dash = "-_"
+//*
+// let dash = "-_"
 
-  // return str.split('').map((e,i,a) => {
-  //    if(dash.indexOf(e) > -1) return "";
-  //    else if(dash.indexOf(a[i-1]) > -1) return e.toUpperCase()
-  //    else return e
-  // }).join('')
+// return str.split('').map((e,i,a) => {
+//    if(dash.indexOf(e) > -1) return "";
+//    else if(dash.indexOf(a[i-1]) > -1) return e.toUpperCase()
+//    else return e
+// }).join('')
 
-  //*
-  // let arr = str.split("-").join(".").split("_").join(".").split(".");
-  // let first = arr.shift();
-  // let c = arr.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-  // return first + c.join('');
+//*
+// let arr = str.split("-").join(".").split("_").join(".").split(".");
+// let first = arr.shift();
+// let c = arr.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+// return first + c.join('');
 // }
 
 // console.log(toCamelCase("the_stealth_warrior")); // theStealthWarrior
@@ -343,31 +343,30 @@
 // console.log(toCamelCase("A-B-C")); //ABC
 // console.log(toCamelCase(""));
 
-
 //? Найти не последовательную букву из алфавита
 // function findMissingLetter(arr){
-  //*
-  // let alphabet ='abcdefghijklmnopqrstuvwxyz'
-  // let arrInLower = arr.join('').toLowerCase()
- 
-  //  let indxElem = [...alphabet].map((e,i,a) => arrInLower.indexOf(e)>=0 ? i : void 0).filter(e => e >= 0).filter((elem, indx, arr) => arr[indx+1] - elem > 1)[0] + 1
+//*
+// let alphabet ='abcdefghijklmnopqrstuvwxyz'
+// let arrInLower = arr.join('').toLowerCase()
 
-  // return arr[0] === arr[0].toUpperCase()  ? alphabet[indxElem].toUpperCase():alphabet[indxElem]
+//  let indxElem = [...alphabet].map((e,i,a) => arrInLower.indexOf(e)>=0 ? i : void 0).filter(e => e >= 0).filter((elem, indx, arr) => arr[indx+1] - elem > 1)[0] + 1
 
-  //! CharCode
-  // let i=arr[0].charCodeAt();
-  // arr.map(x=>  x.charCodeAt()==i?i++:i);
-  // return String.fromCharCode(i);  
+// return arr[0] === arr[0].toUpperCase()  ? alphabet[indxElem].toUpperCase():alphabet[indxElem]
 
-  //*
-  // return String.fromCodePoint(array.map(x => x.codePointAt(0)).find((current,index,array) => index && current-array[index-1] > 1)-1)
-  
-  //! indexOF
-  // const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  // const start = alphabet.indexOf(arr[0]);
-  // return alphabet.slice(start, start + arr.length).find(el => !arr.includes(el));
+//! CharCode
+// let i=arr[0].charCodeAt();
+// arr.map(x=>  x.charCodeAt()==i?i++:i);
+// return String.fromCharCode(i);
 
-  //! indexOF
+//*
+// return String.fromCodePoint(array.map(x => x.codePointAt(0)).find((current,index,array) => index && current-array[index-1] > 1)-1)
+
+//! indexOF
+// const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+// const start = alphabet.indexOf(arr[0]);
+// return alphabet.slice(start, start + arr.length).find(el => !arr.includes(el));
+
+//! indexOF
 
 //   const a = (arr[0] === arr[0].toLowerCase())
 //   ? 'abcdefghijklmnopqrstuvwxyz'
@@ -383,60 +382,59 @@
 
 //? разделить массив на подмасивы где длина подсива === ленс, вернуть в реверсе
 // function selReverse(array, length) {
-  //*
-  // let subArr = []
-  // for(let i = 0; i < Math.ceil(array.length/length); i++){
-  //   //! разделить массив на несколько массивов 
-  //    subArr[i] = array.slice((i * length), (i*length) + length)
-  // }
-  // return subArr
+//*
+// let subArr = []
+// for(let i = 0; i < Math.ceil(array.length/length); i++){
+//   //! разделить массив на несколько массивов
+//    subArr[i] = array.slice((i * length), (i*length) + length)
+// }
+// return subArr
 
-  //*
-  // const res = []
-  // //! в каждом шаге пушим разделеный массив
-  // for(let s =0, e=length; s < array.length; s+= length, e+= length){
-  //   res.push(array.slice(s,e))
-  // }
-  // return res
-  
-  //*forEach
-  // let partsOfArr = []
+//*
+// const res = []
+// //! в каждом шаге пушим разделеный массив
+// for(let s =0, e=length; s < array.length; s+= length, e+= length){
+//   res.push(array.slice(s,e))
+// }
+// return res
 
-  // if(length === 0) return array
+//*forEach
+// let partsOfArr = []
 
-  // else 
-  // array.forEach((_,i) => {
-  //    partsOfArr.push(array.slice((i * length), (i*length) + length))
-  // });
+// if(length === 0) return array
 
-  // return partsOfArr.filter((e,i,arr) =>{
-  //    arr[i].reverse();
-  //   return e.length}).flat()
+// else
+// array.forEach((_,i) => {
+//    partsOfArr.push(array.slice((i * length), (i*length) + length))
+// });
 
-  //*
-    // const selReverse = (array, length) => length === 0 ? array: array.length >= 1 ? array.slice(0,length).reverse().concat(selReverse(array.splice(length),length)) : []
+// return partsOfArr.filter((e,i,arr) =>{
+//    arr[i].reverse();
+//   return e.length}).flat()
 
-  //! reduce + map
-    // return array.reduce((acc,n) =>{  
-    //   if(acc[0].length < length){
-    //     acc[0].push(n)
-    //   }else{
-    //     acc.unshift([n])
-    //   }
-    //   return acc
-    // },[[]]).reverse()
-    // .map(arr => arr.reverse())
-    // .reduce((a,b) => [...a, ...b])
+//*
+// const selReverse = (array, length) => length === 0 ? array: array.length >= 1 ? array.slice(0,length).reverse().concat(selReverse(array.splice(length),length)) : []
 
-    //*reduce
-    // return !length? array:Array(Math.ceil(array.length/length)).fill()
-    //         .map((_,i)=>i*length).reduce((acc,cur) => {
-    //           return acc.concat(array.slice(cur, cur+length).reverse())
-    //         },[])
+//! reduce + map
+// return array.reduce((acc,n) =>{
+//   if(acc[0].length < length){
+//     acc[0].push(n)
+//   }else{
+//     acc.unshift([n])
+//   }
+//   return acc
+// },[[]]).reverse()
+// .map(arr => arr.reverse())
+// .reduce((a,b) => [...a, ...b])
 
-    
-  //чуть другое но тоже разделяет массив на количесво 
-  // return [...Array(Math.ceil(array.length/length))].map((_,indx) => array.filter((_,i) => i % length === 0))
+//*reduce
+// return !length? array:Array(Math.ceil(array.length/length)).fill()
+//         .map((_,i)=>i*length).reduce((acc,cur) => {
+//           return acc.concat(array.slice(cur, cur+length).reverse())
+//         },[])
+
+//чуть другое но тоже разделяет массив на количесво
+// return [...Array(Math.ceil(array.length/length))].map((_,indx) => array.filter((_,i) => i % length === 0))
 // }
 // console.log(selReverse([2,4,6,8,10,12,14,16], 3));
 //[6,4,2,12,10,8,16,14]
@@ -452,7 +450,7 @@
 
 //*
 //  if (words === null) return ''
-//  const arrWords = words.filter(_=>_) 
+//  const arrWords = words.filter(_=>_)
 //   if(arrWords.length < 1) return ""
 //   if(arrWords.length === 1) return arrWords[0]
 //   const lastWord = arrWords[arrWords.length-1]
@@ -471,9 +469,9 @@
 // }
 
 //*
-    // if (words === [] || words === null) return "";
-    // words = words.filter(function(n){ return n !== '' })  
-    // return words.map(function(a, i){  if (i == words.length-2)  return a + " and";  return a + ","  }).join(" ").slice(0, -1);
+// if (words === [] || words === null) return "";
+// words = words.filter(function(n){ return n !== '' })
+// return words.map(function(a, i){  if (i == words.length-2)  return a + " and";  return a + ","  }).join(" ").slice(0, -1);
 
 // }
 // console.log(formatWords(['','','andrew']));
@@ -486,10 +484,9 @@
 // console.log(formatWords(['']));
 // console.log(formatWords([]));
 
-
 //? Поднять букву начиная с заглавной +1 по индексу
 // function wave(str){
-  //* мой вариант не подходит у меня учитывает отступ и сбивается индекс
+//* мой вариант не подходит у меня учитывает отступ и сбивается индекс
 // return Array.from({length:str.length}, (_,i) => str)
 //             .map((e,i) => [...e]
 //             .map((el,indx) => i === indx ? el.toUpperCase():el)
@@ -499,20 +496,18 @@
 //* стандартный вариант как если поднять заглавную тольок здесь кадлую
 // return [...str].map((elm,i) => str.slice(0,i) + elm.toUpperCase() + str.slice(i+1)).filter(x => x!= str)
 
-
 //*
 // let waveArr = [];
 // for(let i = 0; i < str.length; i++) {
 //   let letter = str[i];
 //   if (letter === " ") {
-  //! если надо пропустить continue
+//! если надо пропустить continue
 //     continue;
 //   } else {
 //     waveArr.push(str.slice(0, i) + letter.toUpperCase() + str.slice(i + 1))
-//   } 
+//   }
 // }
 // return waveArr;
-
 
 //! reduce
 // const wave = str => str.split("").reduce((acc, val, i, [...arr]) => {
@@ -527,24 +522,60 @@
 // ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
 
 // Should return: 'Two words,tWo words,twO words,two Words,two wOrds,two woRds,two worDs,two wordS':
-//  expected 
+//  expected
 
 //  [ 'Two words', 'tWo words', 'twO words', 'two words', 'two Words', 'two wOrds', 'two woRds', 'two worDs', 'two wordS' ]
-//   to deeply equal 
+//   to deeply equal
 //   [ 'Two words', 'tWo words', 'twO words', 'two Words', 'two wOrds', 'two woRds', 'two worDs', 'two wordS' ]
 
 
+//? Умножить число на индекс и само себя size раз
+// multiplicationTable = function (size) {
+ //*
+  // var result = [];
+
+  // for (var i = 0; i < size; i++) {
+  //   result[i] = [];
+  //   for(var j = 0; j < size; j++) {
+  //     result[i][j] = (i + 1) * (j + 1);
+  //   }
+  // }
+  
+  // return result
 
 
-function countInversions( array ){
-  // TODO 
-  let count = 0 
-  array.forEach((e,i,a) => {
-    console.log(a[i], a[--i]);
-  })
-  return count 
-}
+ //*
+  //   var result = [];
+  //   for (var idx_m = 1; idx_m <= size; idx_m++) {
+  //     result.push(elemIncrease(idx_m, size));
+  //   }
+  //   return result;
+  // }
 
-console.log(countInversions([2,1,3]));
-console.log(countInversions([6,5,4,3,2,1]));
-// 6,5,4,3,2,1
+  // function elemIncrease(incrNum, sizeNum) {
+  //   var ret = []
+  //     , sum = 0;
+  //   for (var i = 0; i < sizeNum; i++) {
+  //     sum += incrNum;
+  //     ret.push(sum);
+  //   }
+  //   return ret;
+  // }
+
+  //*
+  // Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>(i+1)*(j+1)))
+
+  //*
+  // return Array.from({length: size}, (_,number) => [++number])
+  //             .map((_,i) => Array.apply(null, new Array(size))
+  //             .map((_,j) => (i+1) * (j+1)))
+
+  //*
+//  return Array(size).fill().map((_,i)=> Array(size).fill().map((_,j)=>(1+i)*(1+j)))
+
+ //*
+//  [...Array(size)].map((_, idx) => [...Array(size)].map((_, i) => ++i * (idx + 1)));
+// };
+
+// console.log(multiplicationTable(3));
+//[[1,2,3],[2,4,6],[3,6,9]]

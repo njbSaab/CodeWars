@@ -199,4 +199,59 @@
 
 
 
-                        
+
+//? Умножить число на индекс и само себя size раз
+// multiplicationTable = function (size) {
+ //*
+  // var result = [];
+
+  // for (var i = 0; i < size; i++) {
+  //   result[i] = [];
+  //   for(var j = 0; j < size; j++) {
+  //     result[i][j] = (i + 1) * (j + 1);
+  //   }
+  // }
+  
+  // return result
+
+
+ //*
+  //   var result = [];
+  //   for (var idx_m = 1; idx_m <= size; idx_m++) {
+  //     result.push(elemIncrease(idx_m, size));
+  //   }
+  //   return result;
+  // }
+
+  // function elemIncrease(incrNum, sizeNum) {
+  //   var ret = []
+  //     , sum = 0;
+  //   for (var i = 0; i < sizeNum; i++) {
+  //     sum += incrNum;
+  //     ret.push(sum);
+  //   }
+  //   return ret;
+  // }
+
+  //*
+  // Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>(i+1)*(j+1)))
+
+  //*
+  // return Array.from({length: size}, (_,number) => [++number])
+  //             .map((_,i) => Array.apply(null, new Array(size))
+  //             .map((_,j) => (i+1) * (j+1)))
+
+  //*
+//  return Array(size).fill().map((_,i)=> Array(size).fill().map((_,j)=>(1+i)*(1+j)))
+
+ //*
+//  [...Array(size)].map((_, idx) => [...Array(size)].map((_, i) => ++i * (idx + 1)));
+
+//*
+// Array(size).fill(0).map((_,j)=> 
+//           Array(size).fill(0).map((_,i)=>(j+1)*(i+1)));
+// };
+
+
+// console.log(multiplicationTable(3));
+//todo [[1,2,3],[2,4,6],[3,6,9]]

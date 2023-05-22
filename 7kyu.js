@@ -2073,38 +2073,36 @@
 // console.log(countConsonants('abcdefghijklmnopqrstuvwxyz'));//21
 // console.log(countConsonants("Count my unique consonants!!1"));
 
-
 //? вытянуть цифры из слов и подсчитать сумму
 // function sumOfIntegersInString(s) {
-   //* forEach
+//* forEach
 
-   // let str = '';
-   // let sum = 0;
-   // [...s].forEach(element => {
-   //     if(Number(element) || +element === 0){
-   //         str += element;
-   //     }else{
-   //         str += ' ';
-   //     }
-   // });
+// let str = '';
+// let sum = 0;
+// [...s].forEach(element => {
+//     if(Number(element) || +element === 0){
+//         str += element;
+//     }else{
+//         str += ' ';
+//     }
+// });
 
-   // let array = str.split(' ');
-   // let newArray = array.filter(element => element !== '');
-   // newArray.forEach(element => {
-   //     sum += +element;
-   // });
-   // return sum;
+// let array = str.split(' ');
+// let newArray = array.filter(element => element !== '');
+// newArray.forEach(element => {
+//     sum += +element;
+// });
+// return sum;
 
+//*regular
+//  return s.replace(/\D/g, " ").split(' ').reduce((a,b) => a + +b,0)
 
-   //*regular
-  //  return s.replace(/\D/g, " ").split(' ').reduce((a,b) => a + +b,0)
-
-  //*for
+//*for
 //   let result = 0,
 //       temp = "";
 //       s += "a";
 //   console.log(s);
-  
+
 //   for (let i = 0; i < s.length; i++) {
 //     if (!isNaN(s[i])) {
 //       temp += s[i];
@@ -2115,7 +2113,6 @@
 //     }
 //   }
 //   return result;
-
 
 //*
 // let res = 0;
@@ -2135,7 +2132,7 @@
 
 // return res;
 
-  // Array.from(s).map(Number).filter(e => !isNaN(e))
+// Array.from(s).map(Number).filter(e => !isNaN(e))
 // }
 
 // console.log(
@@ -2150,7 +2147,6 @@
 //   )
 // ); //3635
 
-
 // const arrCheck = value =>{
 //   return value
 // }
@@ -2161,20 +2157,19 @@
 // console.log(arrCheck([[1],[2],[3]]));//true
 // console.log(arrCheck(['A', 'R', 'R', 'A', 'Y']));//false
 
-
 //? сумма юникода букв
 // function theVar(theVariables) {
-   // let letterD = theVariables.slice(0,1) 
-   // letterD = 5;
-   // let letterG = theVariables.slice(-1)
-   // letterG = 6
-   // return letterD + letterG
+// let letterD = theVariables.slice(0,1)
+// letterD = 5;
+// let letterG = theVariables.slice(-1)
+// letterG = 6
+// return letterD + letterG
 
-   //*
-   // return '0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[0])+'0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[2])
+//*
+// return '0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[0])+'0abcdefghijklmnopqrstuvwxyz'.indexOf(theVariables[2])
 
-   //*
-   // return theVariables.charCodeAt(0) + theVariables.charCodeAt(2) - 2 * 96;
+//*
+// return theVariables.charCodeAt(0) + theVariables.charCodeAt(2) - 2 * 96;
 //  }
 
 //  console.log(theVar('d+g'));//11
@@ -2182,149 +2177,457 @@
 //? последовательность элементов в массиве
 // const distributeEvenly = (arr) => {
 
-  //!хоршие решение 
-  // const uniqArr = [...new Set(arr)]
-  // const arrOfTypes = uniqArr.map(e => arr.filter(inner => e === inner))
-  // //cобрать все повторы в разные массивы
+//!хоршие решение
+// const uniqArr = [...new Set(arr)]
+// const arrOfTypes = uniqArr.map(e => arr.filter(inner => e === inner))
+// //cобрать все повторы в разные массивы
 
-  // return arr.map((item,i) => arrOfTypes.map(el => el[i]))
-  //           //разбить по индексу все повторы последовольно
-  //           .reduce((a,b) => [...a, ...b])
-  //           //конкат массива
-  //           .filter(e => e)
+// return arr.map((item,i) => arrOfTypes.map(el => el[i]))
+//           //разбить по индексу все повторы последовольно
+//           .reduce((a,b) => [...a, ...b])
+//           //конкат массива
+//           .filter(e => e)
 
-  //! сложное решение собрать в обьект все дубли
-  // const arr = Object.values(array.reduce((acc, e) => ({...acc, [e]: (acc[e] || []).concat(e)}),{}))
-  // return Array.from({length: Math.max(...arr.map(({length}) => length))}).reduce((acc, _, i) => [...acc, ...arr.map(e => e[i]).filter(Boolean)] ,[])
+//! сложное решение собрать в обьект все дубли
+// const arr = Object.values(array.reduce((acc, e) => ({...acc, [e]: (acc[e] || []).concat(e)}),{}))
+// return Array.from({length: Math.max(...arr.map(({length}) => length))}).reduce((acc, _, i) => [...acc, ...arr.map(e => e[i]).filter(Boolean)] ,[])
 
+//! собрать дубли
+//* forEach
+// let obj={};
+// arr.forEach(o=>obj[o]=(obj[o]||0)+1);
 
-  //! собрать дубли 
-  //* forEach
-  // let obj={};
-  // arr.forEach(o=>obj[o]=(obj[o]||0)+1);
+// arr.forEach(x => {
+//   if (!(x in temp) ) temp[x] = 0;
+//   temp[x]++;
+// });
 
-  // arr.forEach(x => {
-  //   if (!(x in temp) ) temp[x] = 0;
-  //   temp[x]++;
-  // });
+// const map = {};
+// array.forEach(item => {
+//   if (map[item]) map[item].push(item);
+//   else map[item] = [item];
 
-  // const map = {};
-  // array.forEach(item => {
-  //   if (map[item]) map[item].push(item);
-  //   else map[item] = [item];
+// count = {}
+// array.forEach(function (ele) {
+//   if (ele in count) {
+//     count[ele] += 1
+//   } else {
+//     count[ele] = 1
+//   }
+// })
 
+//* reduce
+// let counts = arr.reduce((m,v) => (m[v] = 1 + (m[v] || 0), m), {})
 
-  // count = {} 
-  // array.forEach(function (ele) {
-  //   if (ele in count) {
-  //     count[ele] += 1
-  //   } else {
-  //     count[ele] = 1 
-  //   }
-  // })
-  
+// const x = array.reduce((a,b) => {
+//   a[b] ? a[b]++ : a[b] = 1
+//   return a;
+// },{});
 
-  //* reduce
-  // let counts = arr.reduce((m,v) => (m[v] = 1 + (m[v] || 0), m), {})
+// let counts = xs.reduce((a,x) => (a[x] = (a[x] || 0) + 1, a), {});
+//*for of
+// const counts = {}
 
-  // const x = array.reduce((a,b) => {
-  //   a[b] ? a[b]++ : a[b] = 1
-  //   return a;
-  // },{});
+// for (const item of array) {
+//   counts[item] = (counts[item] || 0) + 1
+// }
 
-  // let counts = xs.reduce((a,x) => (a[x] = (a[x] || 0) + 1, a), {});
-  //*for of
-  // const counts = {}
+//*for
+//  const obj = {};
 
-  // for (const item of array) {
-  //   counts[item] = (counts[item] || 0) + 1
-  // }
-
-  //*for 
-  //  const obj = {};
-  
-  //  for( let i = 0; i < arr.length; i++ ) {    
-  //    obj[arr[i]] !== undefined ? obj[arr[i]] = obj[arr[i]] + 1 : obj[arr[i]] = 0;
-  //  }
+//  for( let i = 0; i < arr.length; i++ ) {
+//    obj[arr[i]] !== undefined ? obj[arr[i]] = obj[arr[i]] + 1 : obj[arr[i]] = 0;
+//  }
 
 // };
 // console.log(distributeEvenly(['one', 'one', 'two', 'two', 'three', 'three', 'four', 'one']));
 
 // ['one', 'two', 'three', 'four', 'one', 'two', 'three', 'one'];
 
-
-//? Найти не последовательное число 
+//? Найти не последовательное число
 // function missingNo(n) {
-  //*
-  // return n.sort((a,b) => a-b).map((e,i,a) => {
-  //  if(a[a.length -1] !== 100) return 100
-  //  if(a[0] !== 0) return 0
-  //  else if(e-i>0) return i
-  // }).filter(e =>e >= 0)[0]
+//*
+// return n.sort((a,b) => a-b).map((e,i,a) => {
+//  if(a[a.length -1] !== 100) return 100
+//  if(a[0] !== 0) return 0
+//  else if(e-i>0) return i
+// }).filter(e =>e >= 0)[0]
 
-  //*
-  // return n.sort((a,b) => a-b).map((e,i,a) => a[a.length -1] !== 100 ?
-  // 100 : e - i > 0 ? i : false).filter(_=>_)[0]
+//*
+// return n.sort((a,b) => a-b).map((e,i,a) => a[a.length -1] !== 100 ?
+// 100 : e - i > 0 ? i : false).filter(_=>_)[0]
 
+//*
+// return 5050 - n.reduce((a, b) => a + b, 0)
 
-  //*
-  // return 5050 - n.reduce((a, b) => a + b, 0)
+//*
+// let resp = []
+// nums.sort((a,b)=> a-b)
+// nums.forEach((num, k) => {
+//   if(num - k === 0) resp.push(num)
+// })
+// return resp.length
 
-  //*
-  // let resp = []
-  // nums.sort((a,b)=> a-b)
-  // nums.forEach((num, k) => {
-  //   if(num - k === 0) resp.push(num)
-  // })
-  // return resp.length
+//*
+// return [...Array(101).keys()].filter(x => !nums.includes(x))[0]
 
-  //*
-  // return [...Array(101).keys()].filter(x => !nums.includes(x))[0]
-
-  //*
-  // nums.sort((a, b) => a - b).find((num, i) => num !== i) - 1
+//*
+// nums.sort((a, b) => a - b).find((num, i) => num !== i) - 1
 // }
 
 // console.log(missingNo(
-//   [9, 45, 53, 10,  100, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92, 84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 26, 95, 1, 52, 78, 6, 57, 50, 2, 46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7, 58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99, 16]) 
+//   [9, 45, 53, 10,  100, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92, 84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 26, 95, 1, 52, 78, 6, 57, 50, 2, 46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7, 58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99, 16])
 // ); // 26
 
 // console.log(missingNo(
 //   [9, 45, 53, 10, 26, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92, 84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 0, 95, 1, 52, 78, 6, 57, 50, 2, 46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7, 58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99, 16])) //100
 
-
-
 // function dontGiveMeFive(start, end){
-  //*
-  // return Array.from(Array(end-start+1),(e,i)=>i+start)
-  // .filter((e)=>(''+e).indexOf('5')===-1)
-  // .length;
+//*
+// return Array.from(Array(end-start+1),(e,i)=>i+start)
+// .filter((e)=>(''+e).indexOf('5')===-1)
+// .length;
 
-  //*
-  // return [...Array(end - start + 1).keys()].map(el => el + start).filter(el => ![...(el.toString())].includes("5")).length
+//*
+// return [...Array(end - start + 1).keys()].map(el => el + start).filter(el => ![...(el.toString())].includes("5")).length
 
-  //*
-  // return Array(end-start+1).fill().map((e,i)=>start+i).filter(e=>e.toString().indexOf("5")===-1).length
-  //*
-  // [...new Array((e - s) + 1)]
+//*
+// return Array(end-start+1).fill().map((e,i)=>start+i).filter(e=>e.toString().indexOf("5")===-1).length
+//*
+// [...new Array((e - s) + 1)]
 
-  //*
-  // let res = 0
-  // for(let i = start; i <= end; i++){
-  //   if(!/5/.test(i)){
-  //     res++
-  //   }
-  // }
-  // return res
+//*
+// let res = 0
+// for(let i = start; i <= end; i++){
+//   if(!/5/.test(i)){
+//     res++
+//   }
+// }
+// return res
 
-  //*
-  // let count = 0;
+//*
+// let count = 0;
 
-  // for (let i = start; i <= end; ++i)
-  //     if (!i.toString().includes("5"))
-  //         count++;
-  //         return count
+// for (let i = start; i <= end; ++i)
+//     if (!i.toString().includes("5"))
+//         count++;
+//         return count
 // }
 
 // console.log(dontGiveMeFive(1,9));//8
 // console.log(dontGiveMeFive(4,17));//12
+
+//? удалить пробелы и соеденить слова
+//* вариант с классическим пушом в массив
+// function spacey(arr) {
+//   let finalArr = [];
+//   let spaceCount = 0;
+//    arr.map((v, i, a) => {
+//     spaceCount += v.length;
+
+//     finalArr.push(arr.join("").slice(0, spaceCount));
+//   });
+//    return finalArr
+// }
+
+//* вариант оптимизирован на три строчки кода
+// function spacey(arr) {
+
+//   let spaceCount = 0;
+//   return arr.map((v, i, a) => {
+//     spaceCount += v.length;
+//   return arr.join("").slice(0, spaceCount);
+
+//   },[]);
+// }
+
+// console.log(spacey(["kevin", "has", "no", "space"]));
+// [ 'kevin', 'kevinhas', 'kevinhasno', 'kevinhasnospace']);
+// console.log(spacey(['this','cheese','has','no','holes']));
+// ['this','thischeese','thischeesehas','thischeesehasno','thischeesehasnoholes']
+
+//? теория вероятности левая > правой вернуть тру
+// const toNum = (str) => console.log(str.split('').map(Number).filter(e => e).slice(-1).join()*1);
+// const mostLikely = (prob1,prob2) => toNum(prob1) > toNum(prob2)
+
+// const toNum = (str) => console.log(str.split('').map(Number).filter(e => e).join('')*1);
+// const mostLikely = (prob1,prob2) => toNum(prob1) > toNum(prob2)
+
+//*
+// function mostLikely(prob1,prob2) {
+// const [a1, b1] = prob1.split(":").map(Number);
+// const [a2, b2] = prob2.split(":").map(Number);
+
+// const ratio1 = a1 / b1;
+// const ratio2 = a2 / b2;
+
+// return ratio1 > ratio2;
+
+//! reduce
+// return prob1.split(':').reduce( (a,b) =>a/b ) > prob2.split(':').reduce( (a,b) =>a/b );
+// }
+
+//*
+// const divide = (a, b) => a / b;
+// const mostLikely = (p1, p2) => divide(...p1.split(':')) > divide(...p2.split(':'));
+
+// console.log(mostLikely('1:3','1:2'))//false
+// console.log(mostLikely('1:2','1:4'))//true
+
+//   //! увеличить массив на n - число аргументы
+// function alternate(n, f, s) {
+//* while
+// let arr = [];
+// let count = 0;
+// while (n > count) {
+//   count += 1;
+
+//   count % 2 === 0 ? arr.push(s) : arr.push(f);
+// }
+// return arr;
+
+//* for
+// const array = [];
+// for (let i = 0; i < n; i++) {
+//   array.push(i % 2 === 0 ? f : s)
+// }
+// return array;
+
+//! увеличить массив на n - число аргументы
+// return [...Array(n)].map((_, i)=> i & 1 ? s:f)
+
+// return Array.from({length: n}, (_,i) => i % 2 ? s : f)
+// }
+
+// console.log(alternate(5, true, false)); //[true, false, true, false, true]
+
+//? поиск дубликата в массиве
+// function duplicates(arr) {
+// не совсем рабочий вариант
+//  let array = arr.filter((e,i,a) => arr.indexOf(e) !== arr.lastIndexOf(e))
+//  return [...new Set(array)]
+
+//* рабочий но не до конца на строках ошибки
+// const seen = [];
+// return arr.filter(elem => {
+//   if(seen.indexOf(elem) !== -1){
+//     return true;
+//   }
+//   seen.push(elem)
+//   return false
+// })
+
+//* решение чат джп спустя 10 попыток
+// const seen = {};
+// const duplicates = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//   const element = arr[i];
+//   const isNumber = typeof element === 'number';
+//   const key = isNumber ? element.toString() : JSON.stringify(element);
+
+//   if (seen[key]) {
+//     if (!duplicates.includes(element)) {
+//       duplicates.push(element);
+//     }
+//   } else {
+//     seen[key] = true;
+//   }
+// }
+
+// return duplicates;
+
+//! reuduce
+// return arr.reduce(function(prev, cur, i, a) {
+//   if (i !== a.indexOf(cur) && prev.indexOf(cur) === -1) {
+//     prev.push(cur);
+//   }
+//   return prev;
+// }, []);
+
+//! forEach
+// let result = [], counts = new Map();
+
+// arr.forEach(function(x) {
+//     var c = (counts.get(x) || 0) + 1;
+//     if (c === 2)
+//       result.push(x);
+//     counts.set(x, c);
+//   });
+// return result;
+
+//*
+
+// let map = new Map();
+// let set = new Set();
+// arr.forEach(e => {
+//   map.get(e) ? set.add(e) : map.set(e, true)
+// })
+// return Array.from(set)
+
+//*
+
+// let x = [];
+// let y = [];
+
+// arr.forEach((i) => {
+//   if (x.includes(i) === false) return x.push(i);
+//   if (x.includes(i) && y.includes(i) === false) return y.push(i);
+// })
+
+// return y
+
+//*
+
+//! map
+// return [...new Set(arr.filter((el, i) => i !== arr.indexOf(el)))];
+
+//*
+
+// return arr.filter((el, i) => i !== arr.indexOf(el) && i === arr.indexOf(el, arr.indexOf(el) + 1))
+
+// }
+
+// console.log(duplicates([5, 1, 2, 3, 1, 4, 5]));//[1,5]
+// console.log(duplicates([1, 2, 3, 3, 2, 1]));// [3, 2, 1],
+// console.log(duplicates([1, 2, 1, 2, 1, 2, 1]));// [1, 2],
+
+//? посчитать средний участников в обьекте балл босса бал х2 в зависимости от количества балла вернуть ответ
+// function outed(meet, boss){
+//*
+// let points = Object.values(meet)
+// let pointBoss = Object.entries(meet)
+
+// pointBoss = pointBoss.find(e => e.includes(boss)).slice(-1).join('')*1
+// return (points.reduce((a,b) => a + b) + pointBoss) / points.length > 5 ?
+//   'Nice Work Champ!' : 'Get Out Now!'
+
+//* оптимизирован
+// let points = Object.values(meet)
+// return (Object.values(meet).reduce((a,b) => a + b) +
+//        Object.entries(meet).find(e => e.includes(boss)).slice(-1)*1 ) / points.length > 5 ?
+//        'Nice Work Champ!' : 'Get Out Now!'
+
+//* for of
+// let sum = 0;
+// for (let i of Object.values(meet)) {
+//   sum += i;
+// }
+// return (sum + meet[boss]) / Object.values(meet).length <= 5 ? 'Get Out Now!' : 'Nice Work Champ!';
+
+//! reduce
+// let names = Object.keys(meet)
+// let score = names.reduce((s,v) => s + meet[v], 0) + meet[boss]
+// return score / names.length > 5 ? 'Nice Work Champ!' : 'Get Out Now!'
+
+// }
+
+//! reduce PRO
+// const outed = (meet,boss,key = Object.keys(meet)) =>
+//   key.reduce((prev,curr) => prev + meet[curr] * (boss == curr ? 2 : 1) ,0) / key.length > 5 ?
+//       'Nice Work Champ!' : 'Get Out Now!'
+
+// console.log(outed({'tim':0, 'jim':2, 'randy':0, 'sandy':7, 'andy':0, 'katie':5, 'laura':1, 'saajid':2, 'alex':3, 'john':2, 'mr':0}, 'laura'));//'Get Out Now!'
+
+// console.log(outed({'tim':1, 'jim':3, 'randy':9, 'sandy':6, 'andy':7, 'katie':6, 'laura':9, 'saajid':9, 'alex':9, 'john':9, 'mr':8}, 'katie'));//'Nice Work Champ!'
+
+//?
+// function broken(x){
+//*
+// return [...x].map(e => e === "0" ? "1" : "0").join('')
+
+//* Варианты с инверсией
+// return [...x].map(char => +!+char).join('')
+
+//*
+// let str = '';
+
+// x.split('').forEach(element => {
+//    str += +!(+element);
+// });
+// return str;
+// }
+
+// console.log(broken("1"));// "0"
+// console.log(broken("10000000101101111110011001000"));// "01111111010010000001100110111"
+// console.log(broken("100010"));// "011101"
+
+// function meeting(x){
+//  x = x.findIndex(e => e === 'O'
+//  return x >= 0 ? x : 'None available!'
+// }
+
+// console.log(meeting(['X', 'O', 'X']));//1
+// console.log(meeting(['O','X','X','X','X']));//0
+// console.log(meeting(['X','X','X','X','X', 'O']));//5
+// console.log(meeting(['X', 'X', 'X']));// -
+
+
+//? расскинуть числа по возрастанию первое максимальное число с лева в массив следущее макс по возраст в правую часть массива и так до конца
+//*
+// function makeValley(arr) {
+//   function bubbleSort(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//       for (let j = 0; j < arr.length - i - 1; j++) {
+//         if (arr[j + 1] > arr[j]) {
+//           [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]];
+//         }
+//       }
+//     }
+//     return arr;
+//   }
+
+//   let sorted = bubbleSort(arr);
+//   let length = arr.length;
+//   let res = [];
+//   let index = 1;
+//   let arrayLeft = 0;
+//   let arrayRight = length - 1;
+
+//   while(index < length){
+//     res[arrayLeft++] = sorted[index - 1]
+//     res[arrayRight--] = sorted[index]
+//     index += 2
+//   }
+//   if(index -1 == length - 1){
+//     res[arrayLeft] = sorted[index - 1]
+//   }
+//   if(length <= 1){
+//     return arr
+//   }
+//   return res
+// }
+
+//*
+// const makeValley = arr =>
+//  [...arr.sort((a,b) => b-a).filter((_,i) => !(i%2)),
+//    ...arr.sort((a,b)=> b-a).filter((_,i)=>(i%2)).reverse()]
+
+//*
+// function makeValley(arr) {
+//   var leftWing = []
+//   var rightWing = []
+//   arr.sort((a, b) => b - a)
+//     .forEach((el, i) => i % 2 == 0 ? leftWing.push(el) : rightWing.unshift(el))
+  
+//   return [...leftWing, ...rightWing]
+
+//*
+// let lwing = [], rwing = [];
+// arr.sort((a, b) => b - a).map((n, i) => (i % 2 == 0) ? lwing.push(n) : rwing.push(n));
+// return lwing.concat(rwing.reverse());
+
+//*
+// return arr.sort( (a,b)=>b-a )
+// .filter( (v,i)=>!(i%2) )
+// .concat( arr.filter( (v,i)=>i%2 ).reverse() );   
+
+// }
+
+
+// console.log(makeValley([17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1]));
+//[17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17]);
+// console.log(makeValley([20, 7, 6, 2])); // [20, 6, 2, 7]
+
+
+

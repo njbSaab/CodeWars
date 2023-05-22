@@ -638,11 +638,11 @@
 // }
 
 // console.log(missingNo(
-//   [9, 45, 53, 10,  100, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92, 84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 26, 95, 1, 52, 78, 6, 57, 50, 2, 46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7, 58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99, 16]) 
+//todo   [9, 45, 53, 10,  100, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92, 84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 26, 95, 1, 52, 78, 6, 57, 50, 2, 46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7, 58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99, 16]) 
 // ); // 26
 
 // console.log(missingNo(
-//   [9, 45, 53, 10, 26, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92, 84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 0, 95, 1, 52, 78, 6, 57, 50, 2, 46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7, 58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99, 16])) //100
+//todo  [9, 45, 53, 10, 26, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88, 18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92, 84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 0, 95, 1, 52, 78, 6, 57, 50, 2, 46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7, 58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35, 61, 99, 16])) //100
 
 
 
@@ -652,7 +652,7 @@
   //!хоршие решение 
   // const uniqArr = [...new Set(arr)]
   // const arrOfTypes = uniqArr.map(e => arr.filter(inner => e === inner))
-  // //cобрать все повторы в разные массивы
+   //cобрать все повторы в разные массивы
 
   // return arr.map((item,i) => arrOfTypes.map(el => el[i]))
   //           //разбить по индексу все повторы последовольно
@@ -717,7 +717,7 @@
 // };
 // console.log(distributeEvenly(['one', 'one', 'two', 'two', 'three', 'three', 'four', 'one']));
 
-// ['one', 'two', 'three', 'four', 'one', 'two', 'three', 'one'];
+//todo ['one', 'two', 'three', 'four', 'one', 'two', 'three', 'one'];
 
 
 
@@ -781,7 +781,226 @@
   // return [...Array(Math.ceil(array.length/length))].map((_,indx) => array.filter((_,i) => i % length === 0))
 // }
 // console.log(selReverse([2,4,6,8,10,12,14,16], 3));
-//[6,4,2,12,10,8,16,14]
+//todo [6,4,2,12,10,8,16,14]
 // console.log(selReverse([1,2,3,4,5,6], 2));
-//[2,1,4,3,6,5]
+//todo [2,1,4,3,6,5]
 // console.log(selReverse([1,2,3,4,5,6], 0));
+
+
+
+//? Умножить число на индекс и само себя size раз
+// multiplicationTable = function (size) {
+ //*
+  // var result = [];
+
+  // for (var i = 0; i < size; i++) {
+  //   result[i] = [];
+  //   for(var j = 0; j < size; j++) {
+  //     result[i][j] = (i + 1) * (j + 1);
+  //   }
+  // }
+  
+  // return result
+
+
+ //*
+  //   var result = [];
+  //   for (var idx_m = 1; idx_m <= size; idx_m++) {
+  //     result.push(elemIncrease(idx_m, size));
+  //   }
+  //   return result;
+  // }
+
+  // function elemIncrease(incrNum, sizeNum) {
+  //   var ret = []
+  //     , sum = 0;
+  //   for (var i = 0; i < sizeNum; i++) {
+  //     sum += incrNum;
+  //     ret.push(sum);
+  //   }
+  //   return ret;
+  // }
+
+  //*
+  // Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>(i+1)*(j+1)))
+
+  //*
+  // return Array.from({length: size}, (_,number) => [++number])
+  //             .map((_,i) => Array.apply(null, new Array(size))
+  //             .map((_,j) => (i+1) * (j+1)))
+
+  //*
+//  return Array(size).fill().map((_,i)=> Array(size).fill().map((_,j)=>(1+i)*(1+j)))
+
+ //*
+//  [...Array(size)].map((_, idx) => [...Array(size)].map((_, i) => ++i * (idx + 1)));
+// };
+
+// console.log(multiplicationTable(3));
+//todo [[1,2,3],[2,4,6],[3,6,9]]
+
+
+//? удалить пробелы и соеденить слова
+// //* вариант с классическим пушом в массив
+// function spacey(arr) {
+//    let finalArr = [];
+//    let spaceCount = 0;
+//     arr.map((v, i, a) => {
+//      spaceCount += v.length;
+   
+//      finalArr.push(arr.join("").slice(0, spaceCount));
+//    });
+//     return finalArr
+//  }
+ 
+ //* вариант оптимизирован на три строчки кода
+//  function spacey(arr) {
+ 
+//    let spaceCount = 0;
+//    return arr.map((v, i, a) => {
+//      spaceCount += v.length;
+//    return arr.join("").slice(0, spaceCount);
+ 
+//    },[]);
+//  }
+ 
+//* еще более оптимизирован
+// function spacey(arr){
+//    return arr.map((_, i) => arr.slice(0, ++i).join(''))
+// }
+
+//! nice
+// function spacey(arr){
+//    let str = '';
+//    return arr.map(e => str +=e)
+// }
+
+//! reduce
+// function spacey(arr){
+// const wordsList = array.reduce(
+//    (acc, curr) => {
+//      if (acc.length < 1) {
+//        return [...acc, curr];
+//      }
+     
+//      const addWord = [...acc, acc[acc.length - 1] + curr];
+
+//      return addWord;
+//    }, [],
+//  );
+ 
+//  return wordsList;
+// }
+
+
+//  console.log(spacey(["kevin", "has", "no", "space"]));
+ // [ 'kevin', 'kevinhas', 'kevinhasno', 'kevinhasnospace']);
+ // console.log(spacey(['this','cheese','has','no','holes']));
+ // ['this','thischeese','thischeesehas','thischeesehasno','thischeesehasnoholes']
+
+
+
+
+ //   //! увеличить массив на n - число аргументы
+// function alternate(n, f, s) {
+  //* while
+  // let arr = [];
+  // let count = 0;
+  // while (n > count) {
+  //   count += 1;
+
+  //   count % 2 === 0 ? arr.push(s) : arr.push(f);
+  // }
+  // return arr;
+
+  //* for
+  // const array = [];
+  // for (let i = 0; i < n; i++) {
+  //   array.push(i % 2 === 0 ? f : s)
+  // }
+  // return array;
+
+  //! увеличить массив на n - число аргументы
+  // return [...Array(n)].map((_, i)=> i & 1 ? s:f)
+
+  // return Array.from({length: n}, (_,i) => i % 2 ? s : f)
+
+  //   return Array.from({length: n},(v, index) => !(index % 2) ? firstValue : secondValue )
+
+  // return Array.from({length: n}, (_,i) => [firstValue,secondValue][i%2])
+
+
+// }
+
+// console.log(alternate(5, true, false)); //[true, false, true, false, true]
+
+
+//? расскинуть числа по возрастанию первое максимальное число с лева в массив следущее макс по возраст в правую часть массива и так до конца
+//*
+// function makeValley(arr) {
+//   function bubbleSort(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//       for (let j = 0; j < arr.length - i - 1; j++) {
+//         if (arr[j + 1] > arr[j]) {
+//           [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]];
+//         }
+//       }
+//     }
+//     return arr;
+//   }
+
+//* альтернатива перебра 
+// return [...Array(n)].map((_,i)=>[...Array(n)].map((_,j)=>(i+j)%n+1))
+//*
+
+//   let sorted = bubbleSort(arr);
+//   let length = arr.length;
+//   let res = [];
+//   let index = 1;
+//   let arrayLeft = 0;
+//   let arrayRight = length - 1;
+
+//   while(index < length){
+//     res[arrayLeft++] = sorted[index - 1]
+//     res[arrayRight--] = sorted[index]
+//     index += 2
+//   }
+//   if(index -1 == length - 1){
+//     res[arrayLeft] = sorted[index - 1]
+//   }
+//   if(length <= 1){
+//     return arr
+//   }
+//   return res
+// }
+
+//*
+// const makeValley = arr =>
+//  [...arr.sort((a,b) => b-a).filter((_,i) => !(i%2)),
+//    ...arr.sort((a,b)=> b-a).filter((_,i)=>(i%2)).reverse()]
+
+//*
+// function makeValley(arr) {
+//   var leftWing = []
+//   var rightWing = []
+//   arr.sort((a, b) => b - a)
+//     .forEach((el, i) => i % 2 == 0 ? leftWing.push(el) : rightWing.unshift(el))
+  
+//   return [...leftWing, ...rightWing]
+
+//*
+// let lwing = [], rwing = [];
+// arr.sort((a, b) => b - a).map((n, i) => (i % 2 == 0) ? lwing.push(n) : rwing.push(n));
+// return lwing.concat(rwing.reverse());
+
+//*
+// return arr.sort( (a,b)=>b-a )
+// .filter( (v,i)=>!(i%2) )
+// .concat( arr.filter( (v,i)=>i%2 ).reverse() );   
+
+// }
+
+
+// console.log(makeValley([17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1]));
+//[17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17]);
+// console.log(makeValley([20, 7, 6, 2])); // [20, 6, 2, 7]

@@ -577,3 +577,89 @@
 // console.log(person.age);
 
 
+//? посчитать средний участников в обьекте балл босса бал х2 в зависимости от количества балла вернуть ответ
+// function outed(meet, boss){
+//*
+// let points = Object.values(meet)
+// let pointBoss = Object.entries(meet)
+
+// pointBoss = pointBoss.find(e => e.includes(boss)).slice(-1).join('')*1
+// return (points.reduce((a,b) => a + b) + pointBoss) / points.length > 5 ?
+//   'Nice Work Champ!' : 'Get Out Now!'
+
+//* оптимизирован
+// let points = Object.values(meet)
+// return (Object.values(meet).reduce((a,b) => a + b) +
+//        Object.entries(meet).find(e => e.includes(boss)).slice(-1)*1 ) / points.length > 5 ? 
+//        'Nice Work Champ!' : 'Get Out Now!'
+
+//* for of
+// let sum = 0;
+// for (let i of Object.values(meet)) {
+//   sum += i;   
+// }
+// return (sum + meet[boss]) / Object.values(meet).length <= 5 ? 'Get Out Now!' : 'Nice Work Champ!';
+
+//! reduce
+// let names = Object.keys(meet)
+// let score = names.reduce((s,v) => s + meet[v], 0) + meet[boss]
+// return score / names.length > 5 ? 'Nice Work Champ!' : 'Get Out Now!'
+
+// }
+
+//! reduce PRO
+// const outed = (meet,boss,key = Object.keys(meet)) => 
+//   key.reduce((prev,curr) => prev + meet[curr] * (boss == curr ? 2 : 1) ,0) / key.length > 5 ?
+//       'Nice Work Champ!' : 'Get Out Now!'
+
+// console.log(outed({'tim':0, 'jim':2, 'randy':0, 'sandy':7, 'andy':0, 'katie':5, 'laura':1, 'saajid':2, 'alex':3, 'john':2, 'mr':0}, 'laura'));//'Get Out Now!'
+
+// console.log(outed({'tim':1, 'jim':3, 'randy':9, 'sandy':6, 'andy':7, 'katie':6, 'laura':9, 'saajid':9, 'alex':9, 'john':9, 'mr':8}, 'katie'));//'Nice Work Champ!'
+
+
+//? посчитать количество баллов согласно должностям boredomPoints
+
+//*
+// function boredom(staff, key = Object.values(staff)){
+//   const boredomPoints = {'accounts': 1,'finance': 2,'canteen': 10,'regulation' : 3,'trading' : 6,'change' : 6,'IS' : 8,'retail' : 5,'cleaning' : 4,'pissing about' : 25,
+//   } 
+//    const res = key.reduce((a,b) => a + boredomPoints[b] ,0) 
+//    return res <= 80 ? 'kill me now' :  res > 80 && res < 100 ? 'i can handle this' : 'party time!!'
+// }
+
+//* через map
+// function boredom(staff) {
+//    var teams = { 'accounts'      : 1,
+//                  'finance'       : 2 ,
+//                  'canteen'       : 10, 
+//                  'regulation'    : 3, 
+//                  'trading'      : 6, 
+//                  'change'        : 6,
+//                  'IS'            : 8,
+//                  'retail'        : 5,
+//                  'cleaning'      : 4,
+//                  'pissing about' : 25}
+
+//    score = Object.keys(staff)
+
+//    return score.map(key => teams[staff[key]]).reduce((a,b) => a+b)
+// }
+
+//! reduce PRO
+// const boredom = staff => 
+// (val => val <= 80 ? `kill me now` : val >= 100 ? `party time!!` : `i can handle this`)
+// (Object.values(staff).reduce((a, b) => a + {accounts: 1, finance: 2, canteen: 10, regulation: 3, trading: 6, change: 6, IS: 8, retail: 5, cleaning: 4, 'pissing about': 25}[b],0))
+
+
+// console.log(boredom({tim: 'change', jim: 'accounts',
+// randy: 'canteen', sandy: 'change', andy: 'change', katie: 'IS',
+// laura: 'change', saajid: 'IS', alex: 'trading', john: 'accounts',
+// mr: 'finance' }))// 'kill me now'
+// console.log(boredom({ tim: 'IS', jim: 'finance',
+// randy: 'pissing about', sandy: 'cleaning', andy: 'cleaning',
+// katie: 'cleaning', laura: 'pissing about', saajid: 'regulation',
+// alex: 'regulation', john: 'accounts', mr: 'canteen' }));// 'i can handle this'
+// console.log(boredom({ tim: 'accounts', jim: 'accounts',
+// randy: 'pissing about', sandy: 'finance', andy: 'change',
+// katie: 'IS', laura: 'IS', saajid: 'canteen', alex: 'pissing about',
+// john: 'retail', mr: 'pissing about' }));// 'party time!!'
