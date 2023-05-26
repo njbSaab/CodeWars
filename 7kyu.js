@@ -2562,7 +2562,6 @@
 // console.log(meeting(['X','X','X','X','X', 'O']));//5
 // console.log(meeting(['X', 'X', 'X']));// -
 
-
 //? расскинуть числа по возрастанию первое максимальное число с лева в массив следущее макс по возраст в правую часть массива и так до конца
 //*
 // function makeValley(arr) {
@@ -2609,7 +2608,7 @@
 //   var rightWing = []
 //   arr.sort((a, b) => b - a)
 //     .forEach((el, i) => i % 2 == 0 ? leftWing.push(el) : rightWing.unshift(el))
-  
+
 //   return [...leftWing, ...rightWing]
 
 //*
@@ -2620,14 +2619,132 @@
 //*
 // return arr.sort( (a,b)=>b-a )
 // .filter( (v,i)=>!(i%2) )
-// .concat( arr.filter( (v,i)=>i%2 ).reverse() );   
+// .concat( arr.filter( (v,i)=>i%2 ).reverse() );
 
 // }
-
 
 // console.log(makeValley([17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1]));
 //[17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17]);
 // console.log(makeValley([20, 7, 6, 2])); // [20, 6, 2, 7]
 
+// var song = function () {
+//   const res = [];
+//   let n = 99
+
+//   while (n > 2) {
+//     res.push(`${n} bottles of beer on the wall, ${n --} bottles of beer.`);
+//     res.push(`Take one down and pass it around, ${n} bottles of beer on the wall.`);
+//   }
+//   res.push("2 bottles of beer on the wall, 2 bottles of beer.",
+//   "Take one down and pass it around, 1 bottle of beer on the wall.",
+//   "1 bottle of beer on the wall, 1 bottle of beer.",
+//   "Take one down and pass it around, no more bottles of beer on the wall.",
+//   "No more bottles of beer on the wall, no more bottles of beer.",
+//   "Go to the store and buy some more, 99 bottles of beer on the wall." )
+
+//   return res;
+// };
+
+// function compose(s1, s2){
+//   const lines1 = s1.split('\n')
+//   const lines2= s2.split('\n')
+//   const n = lines1.length;
+//   let res = ''
+
+//   for(let i = 0; i < n; i++){
+//     res+=lines1[i].slice(0, i+1) + lines2[n-i-1].slice(0, n-i) + '\n'
+//   }
+
+//   return res
+// }
+
+//*
+// const compose = (s1, s2)  =>
+// 	s1.split('\n')
+//   	.map((x, i, arr, arr2 = s2.split('\n').reverse()) =>
+//     	x.slice(0, i + 1) + arr2[i].slice(0, arr2.length - i)
+//     ).join('\n')
+
+// console.log(compose("byGt\nhTts\nRTFF\nCnnI", "jIRl\nViBu\nrWOb\nNkTB"))
+//"bNkTB\nhTrWO\nRTFVi\nCnnIj"
+// console.log(compose("HXxA\nTGBf\nIPhg\nuUMD", "Hcbj\nqteH\nGbMJ\ngYPW"))
+// "HgYPW\nTGGbM\nIPhqt\nuUMDH"
+
+// function intRac(n, guess) {
+//   let count = 0;
+//   let x = guess;
+
+//   while (Math.abs(x - guess) >= 1) {
+//     guess = x;
+//     x = Math.floor((x + n / x) / 2);
+//     count++;
+//   }
+
+//   return count;
+// }
+
+// function intRac(n, guess) {
+//   let steps = 0;
+
+//   while (true) {
+//       steps++;
+//       const newGuess = Math.floor((guess + Math.floor(n / guess)) / 2);
+//       if (Math.abs(guess - newGuess) < 1)
+//           break;
+//       guess = newGuess;
+//   }
+//   return steps;
+// }
+
+// console.log(intRac(25, 1)); // Expected output: 4
+// console.log(intRac(125348, 300)); // Expected output: 3
+
+// function sortByArea(array) {
+//   return array.map(e => Array.isArray(e))
+// }
+
+// console.log(sortByArea([ [4.23, 6.43], 1.23, 3.444, [1.342, 3.212] ]));
+// // [ [1.342, 3.212], 1.23, [4.23, 6.43], 3.444 ]
+// console.log(sortByArea([ [2, 5], 6 ]));//[ [2, 5], 6 ]
+
+// const ar = (args) => args.filter(e => isNaN(e) && e !== undefined)
+// console.log(ar(['a', 'b', '', '', undefined]));// 'a', 'b'
 
 
+
+// let count = 0
+// let length = arr.length
+// let arrRes = []
+
+//  arr.forEach((e,i,a) => {
+//   arrRes.push(a[i][count])
+
+// })
+// return arrRes
+
+// let arrRes = [];
+// let count = 0
+// for(let i = 0; i < arr.length; i++){
+//   count+=1
+//   for(j = 0; j < arr.length;j++){
+//     arrRes.push(arr[i][count]);
+
+//   }
+// }
+// return arrRes
+
+
+// const last = xs => xs.length > 0 ? xs[xs.length - 1] : null
+// console.log(last([1,2,3]));
+// console.log(last([]));
+
+//? Соеденить первые буквы слов
+// function toAcronym(inp){
+// return  inp.join('').split(' ').map(elem => elem[0].toUpperCase()).join('')
+
+// }
+
+
+//   console.log(toAcronym(["Code Wars"])); //CW
+//   console.log(toAcronym(["PHP: Hypertext Preprocessor"])); //PHP
+//   console.log(toAcronym(["hP: typertext Preprocessor"])); //PHP

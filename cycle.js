@@ -725,7 +725,9 @@
 // }
 // console.log(squares(2, 5));//2/4/8/16/256
 // console.log(squares(3, 3));//3,9,81
-// console.log(squares(5, 3));//5,25,625
+//
+//  console.log(squares(5, 3));//5,25,625
+
 
 
 
@@ -744,8 +746,8 @@
 //    return Array.from(String(val), Number)
 //    }
 
-//    console.log(nextPal(191));
 
+//    console.log(nextPal(191));
 
 //! массив в длину аргумента 
 // function modifyMultiply (str,loc,num) {
@@ -838,3 +840,398 @@
 // console.log(distributeEvenly(['one', 'one', 'two', 'two', 'three', 'three', 'four', 'one']));
 
 // ['one', 'two', 'three', 'four', 'one', 'two', 'three', 'one'];
+
+
+
+
+
+//! двумерные массив двумерные массив двумерные массив двумерные массив
+
+//? cобрать строку из двумерного массива по индексу 
+// function arrAdder(arr) {
+  //*
+  //  let res = ''
+  //  for(let i = 0; i < arr[0].length; i++){
+  //   for(let j = 0; j < arr.length; j++){
+  //     res += arr[j][i]
+  //   }
+  //    res += ' '
+  //  }
+  //   return res.trim()
+
+  //* MAP
+  // return arr[0].map((_,i) => arr.map((_,j) => arr[j][i]).join('')).join(' ')
+
+  //* REDUCE
+  // return arr[0].map((_,i) => arr.reduce((prev, val) => prev + val[i] , '')).join(' ')
+  
+  // return arr.reduce((a,b) => a.map((e,i) => e + b[i])).join(' ')
+
+  //* почти без двух букв недотянуло
+  // return arr.map((e, i, a) => e
+  // .map((v,idx) => a[idx][i]))
+  // .reduce((a, b) => [...a, 0, ...b])
+  // .filter(e => e !== '' && e !== undefined)
+  // .map(e => e === 0 ? ' ' : e)
+  // .join('')
+
+  // return arr.reduce((a, b, i, array) => a = b.reduce((acc, next, idx, aRR) =>{
+  // acc = arr[idx][i];
+  // return acc
+  // }, '') ,[])
+// }
+
+// console.log(
+//   arrAdder([
+//     ["J", "L", "L", "M"],
+//     ["u", "i", "i", "a"],
+//     ["s", "v", "f", "n"],
+//     ["t", "e", "e", ""],
+//   ])
+// ); //"Just Live Life Man"
+
+// console.log(
+//   arrAdder([
+//     ["T", "M", "i", "t", "p", "o", "t", "c"],
+//     ["h", "i", "s", "h", "o", "f", "h", "e"],
+//     ["e", "t", "", "e", "w", "", "e", "l"],
+//     ["", "o", "", "", "e", "", "", "l"],
+//     ["", "c", "", "", "r", "", "", ""],
+//     ["", "h", "", "", "h", "", "", ""],
+//     ["", "o", "", "", "o", "", "", ""],
+//     ["", "n", "", "", "u", "", "", ""],
+//     ["", "d", "", "", "s", "", "", ""],
+//     ["", "r", "", "", "e", "", "", ""],
+//     ["", "i", "", "", "", "", "", ""],
+//     ["", "a", "", "", "", "", "", ""],
+//   ])
+// ); // "The Mitochondria is the powerhouse of the cell"
+
+//? вытащить из массивов на каком месте и в каком массиве Х
+// const xMarksTheSpot = (input) => {
+// let res = []
+
+// для понимания как работает перебор в многомерном мас
+// for(let i = 0; i <= input.length; i++){
+//    for(let j = i; j <= input.length; j++){
+//       if(input[i][j] === val) return res = [[i],[j]]
+//       else [] } 
+//    }
+//    return res
+
+
+//*
+   //  input.forEach((e,i) => {
+   //   e.forEach((elem, indx) => {
+   //    if(elem === 'x') res.push(i, indx)
+   //   })
+   //  })
+
+   //  return res.length === 2 ? res : []
+
+
+//! reduce 
+//  return input.reduce((acc, el, i)=> {
+//     if(el.includes('x')) acc =[...acc, i, el.indexOf('x')]
+//     if(acc.length > 2) acc = [];
+//     return acc
+//  })
+
+
+
+// console.log(xMarksTheSpot
+// ([
+
+//    ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+//    ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+//    ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+//    ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+//    ['o', 'o', 'o', 'o', 'o', 'o', 'x', 'o'],
+//    ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o']
+//  ])); //[4,6]
+
+
+//  console.log(xMarksTheSpot
+//    ([
+//       ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+//       ['x', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+//     ])); [1,0]
+
+
+
+//* вычислить сумму массиво и умножить на 20
+// let sunday = [6737, 7244, 5776, 9826, 7057, 9247], monday = [9175, 7883, 7596, 8635, 9274, 9675, 5603],
+// tuesday = [8646, 6945, 6364, 9563, 5627, 5068, 9157],
+// wednesday = [6353, 9605, 5464, 9752, 9915, 7446],
+// thursday = [6149, 6439, 9899, 5897, 8589, 7627, 6341],
+// friday = [5000, 5642, 9143, 7731, 8477, 8000, 7411],
+// saturday = [5448, 8041, 6573, 8104, 6208, 5912, 7927]
+
+// const stairs = [sunday,monday,tuesday,wednesday,thursday,friday,saturday];
+
+// function stairsIn20(s){
+   //! flat обьеденяет массивы
+   // return s.flat().reduce((a, b) => a + b, 0) * 20
+
+   // return s.map((e) => (e.reduce((a, b)=> a + b))).reduce((x, y) => x + y) * 20
+
+   // return 20 * s.reduce((a, b)=> a + b.reduce((x, y)=> x + y, 0), 0)
+//  }
+
+//  console.log(stairsIn20([stairs]));
+
+// function solution(str, ending){
+   //str.slice(-ending.length).includes(ending)
+   //return str.endsWith(ending)
+//   }
+//   console.log(solution('sanurai', 'rai'))// true);
+//   console.log(solution('abcde', 'abc'))// false);
+ 
+//! флат массив обьеденить из многомерных
+// var flatten = function (array){
+   // return array.flat(1)
+
+   // return [].concat(...array)
+
+   // return array.reduce((a,b) => a.concat(...b) ,[])
+
+   // return array.reduce((a,b) => [...a, ...b], [])
+
+   // return [].concat(...Array.from(array))
+//  }
+
+//  const flatten = (array) => array.reduce( (acc, item) => (Array.isArray(item ) ) ? acc = [...acc, ...item] :  acc = [...acc, item], [] );
+
+//  console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]))
+ //([1, 2, 3, "a", "b", "c", 1, 2, 3]);
+
+//  console.log(flatten( [[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]))
+ // ([3, 4, 5, [9, 9, 9], "a,b,c"]);
+
+
+//  console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]))
+ // ([[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
+
+
+//? Удаление дублей
+ // function mergeArrays(arr1, arr2) {
+   //*
+   //   return [...new Set([...arr1, ...arr2])].sort((a, b) => a-b)
+   
+   //* arrayFrom
+   // return Array.from(new Set(arr1.concat(arr2).sort((a,b) => (a-b))));
+   
+   //* 
+   // return [...arr1, ...arr2].filter((e, i, a)=> a.indexOf(e) === i).sort((a,b) => a-b)
+   // }
+   
+   
+   // console.log(mergeArrays([1,3,5,7,9,11,12], [1,2,3,4,5,10,12]));
+   // console.log(mergeArrays([1,3,5,7,9], [10,8,6,4,2]));
+
+
+// function cupAndBalls(b, arr){
+//    const indexArr = [];
+//   arr.forEach((elem,indx,a) => {
+//      elem.findIndex((e,i) =>{ 
+//         if(e === b && i === 0) indexArr.push(indx) 
+//       });
+//    }); 
+   
+//    return arr.length > 1 ? indexArr[0] : 1
+
+//    return arr.reduce((b,[x,y]) => x === b ? y : y === b ? x : b ,b)
+
+      // return arr.flat().map((e,i) => (e === b) ? i : false).filter(e => e)[0]
+// };
+
+// console.log(cupAndBalls(1,[[2,3],[1,2],[1,2]])); //1
+// console.log(cupAndBalls(2,[[1,3],[1,2],[2,1],[2,3]])); //3
+// console.log(cupAndBalls(2,[[1,2]])); //1 
+
+
+
+
+//? отнять элементы массивов по индексу и вернуть [мин и макс] число
+// function maxMin(arr1,arr2){
+//*
+// let res = [];
+// let arrRevers = arr2.reverse();
+
+// const arr3 = [...arr1, ...arrRevers].forEach((e,i,array) =>{
+//   res.push(Math.abs(array[array.length -1 - i] - array[i]));
+// })
+// res = res.slice(0, arr1.length);
+
+// return [Math.max(...res), Math.min(...res)];
+
+//*
+// let difference = arr1.map((e,i) => Math.abs(e - arr2[i]))
+// return [Math.max(...difference), Math.min(...difference)];
+
+//*
+//  let difference = arr1.reduce((a,b,i) => [...a, Math.abs(b - arr2[i])],[])
+//  return [Math.max(...difference), Math.min(...difference)];
+
+//! reudce PRO
+// return arr1.reduce(([max, min], v, i) =>
+//  ([max = Math.max(Math.abs(v - arr2[i]), max),
+//   min = Math.min(Math.abs(v - arr2[i]), min)], [max, min]),
+//    [0, Infinity])
+
+
+//  }
+//*
+//  function maxMin(arr1,arr2){
+//    var diffs = [];
+//    for (i = 0; i < arr1.length; i++) {
+//      diffs.push(Math.abs(arr1[i]-arr2[i]))
+//    }
+//    return [Math.max(...diffs), Math.min(...diffs)]
+//  }
+
+//  console.log(maxMin([1,3,5],[9,8,7]));// 8,2
+//  console.log(maxMin([1,10,100,1000],[0,0,0,0]));// 1000, 1
+//  console.log(maxMin([10,20,30,40],[111,11,1,-111]));//151, 9
+// [1,3,5]
+//  | | |   --->  8, 5, 2
+// [9,8,7]
+
+
+//? двумерный массив увеличить по числу или сумме агрумента
+// function explode(x){
+   //*
+// const res = []
+
+// let y = x.map(e => e === parseInt(e)).every(e => !e);
+
+//  if(y) return 'Void!'
+//  else{
+//    y = x.filter(Number).reduce((a,b) => a + b, 0)
+//      for(let i = 0; i < y; i++){
+//      res.push(x)
+//   }
+//   return res
+//  }
+
+//*
+// let [a,b] = x;
+  
+// if(typeof a == "number" && typeof b == "number") return new Array(a+b).fill(x);
+// else if(typeof a == "number") return new Array(a).fill(x);
+// else if(typeof b == "number") return new Array(b).fill(x);
+
+// return 'Void!';
+ 
+//* filter
+// let filtersEl = x.filter(e => typeof(e) === "number")
+//  if(filtersEl.length === 0) return "void"
+
+// return Array(filtersEl.reduce((a,b) => a + b,0)).fill(x)
+
+//! отличный способо через Array.from
+// const num = x.filter(e => !isNaN(e))
+// return num.length ? Array.from(Array(num.reduce((a,b) => a + b)), y => x) : 'Void'
+
+//*
+// const result = Array.from({length: arr.filter(x => x === +x).reduce((a,b) => a+b, 0)}, x => arr)
+// return arr.some(x => x === +x) ? result : 'Void!'
+// }
+
+//! вариант с деструктуризацией
+// const explode = ({0:a, 1:b, 0:{0:x}, 1:{0:y}}) => x && y ? 'Void!' : Array((+a | 0) + (+b | 0)).fill([a,b])
+
+// console.log(explode(['a', 3]));// [['a', 3], ['a', 3], ['a', 3]]
+// console.log(explode([9, 3]));// [[9, 3], [9, 3]...9]
+// console.log(explode(['a', 'b']));//'Void'
+// console.log(explode(['a', 0]));//[]
+
+
+
+
+//? Собрать линии в двумерном массиве и подсчитать сумму очков
+// function calculateWin(lines){
+   // let verticalLine = []
+   // let leftTop = []
+   // let leftBot = []
+   // let rigthTop = []
+   // let rigthBot = []
+
+
+   // lines.forEach((e,i,arr) => {
+   //    leftTop.push(e[i]),
+   //    leftBot.push( arr[arr.length -1 -i][i])
+   //    rigthTop.push(e.reverse()[i])
+   //    rigthBot.push(e.reverse()[arr.length -1 +i])
+   //  })
+   //  verticalLine = [[...leftTop], [...rigthTop],[...leftBot], [...rigthBot]]
+
+// verticalLine = verticalLine.map((e,i) => i === 1 ? e.map((_) => e.reverse())[0] : e)
+
+// verticalLine = verticalLine.map((e,i) =>(i%2==1)?  e.splice(1,3) : e)
+// verticalLine = [[...verticalLine[0], ...verticalLine[1]], [...verticalLine[2], ...verticalLine[3]]]
+
+// const reduceSum = arg => lines.map((el,i,a) => el.filter((e,inx,arr) => arr[inx-1] === arr[inx +1]).length+2).filter(e => e > 2).map(e=> {
+//    if(e===3) return 50
+//    if(e===4) return 150
+//    if(e===5) return 300
+// }).reduce((a,b) => a+b)
+
+// return reduceSum(verticalLine)
+
+// let res = []
+// lines.forEach((e,ind,arr) => {
+//    for(let i = 0; i < e.length; i++){
+//       for(let j = 1; j < e.length; j++){
+//         if(e[i] === e[j]) res.push(e[i]);
+//       }
+//    }
+//  })
+//  return res
+
+//*every
+// const calc = l => {
+//    if (l.every(v => v === l[0])) return 300
+//    else if (l.slice(0, 4).every(v => v === l[0])) return 150
+//    else if (l.slice(0, 3).every(v => v === l[0])) return 50
+//    else return 0
+//  }
+//  let points = 0
+//  lines.forEach(line => {
+//    points += calc(line)
+//  })
+//  points += calc([lines[2][0], lines[1][1], lines[0][2], lines[1][3], lines[2][4]])
+//  points += calc([lines[0][0], lines[1][1], lines[2][2], lines[1][3], lines[0][4]])
+//  return points
+
+//*foreEach
+// let result = 0;
+
+// lines
+// .forEach((n, i) => n
+// .forEach((m, j) => {
+//    if (j === 0) {
+//       m === n[1] && m === n[2] ? (result += 50, m === n[3]) ? (result += 100, m === n[4]) ? result += 150 : '' : '' : '';
+//       if (i === 0) {
+//          m === lines[1][1] && m === lines[2][2] ? (result += 50, m === lines[1][3]) ? (result += 100, m === lines[0][4]) ?	result += 150 : '' : '' : '';
+//       };
+//       if (i === 2) {
+//          m === lines[1][1] && m === lines[0][2] ? (result += 50, m === lines[1][3]) ? (result += 100, m === lines[2][4]) ? result += 150 : '' : '' : '';
+//       };
+//    }
+// }));
+// return result;
+
+// }
+
+
+// console.log(calculateWin([["Q","Q","Q","Q","Q"],//300
+//                          ["10","Q","Q","Q","A"], //50
+//                          ["Q","A","A", "J","Q"]]));//150
+
+// console.log(calculateWin([["10","10","10","Q","Q"]
+//                          ,["9", "9", "9", "9","A"]
+//                          ,["K", "K", "K", "K","K"]]))//500
+
+
+

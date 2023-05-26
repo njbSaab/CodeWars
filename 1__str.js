@@ -262,6 +262,18 @@
 // console.log(countConsonants("Count my unique consonants!!1"));
 
 
+//? Соеденить первые буквы слов
+// function toAcronym(inp){
+// return  inp.join('').split(' ').map(elem => elem[0].toUpperCase()).join('')
+
+// }
+
+
+//   console.log(toAcronym(["Code Wars"])); //CW
+//   console.log(toAcronym(["PHP: Hypertext Preprocessor"])); //PHP
+//   console.log(toAcronym(["hP: typertext Preprocessor"])); //PHP
+
+
 //? вытянуть цифры из слов и подсчитать сумму
 // function sumOfIntegersInString(s) {
 
